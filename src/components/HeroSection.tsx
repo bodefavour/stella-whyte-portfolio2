@@ -1,134 +1,103 @@
 import { useEffect, useState } from "react";
-import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import ColorThief from "colorthief";
 
-const IMAGES = [
-    {
-        src: "/public/assets/stella1.jpg",
-        titles: ["Model", "Philanthropist", "Golf Champion", "Media Personality"],
-    },
-    {
-        src: "/assets/stella2.jpg",
-        titles: ["Founder", "Beauty Queen", "Influencer", "Public Speaker"],
-    },
-    {
-        src: "/assets/stella3.jpg",
-        titles: ["TV Host", "Entrepreneur", "Humanitarian", "Advocate"],
-    },
+const images = [
+  {
+    src: "/assets/stella1.png",
+    titles: ["Model", "Philanthropist", "Golf Champion", "Media Personality"],
+  },
+  {
+    src: "/assets/stella2.png",
+    titles: ["Founder", "Beauty Queen", "Influencer", "Public Speaker"],
+  },
+  {
+    src: "/assets/stella3.png",
+    titles: ["TV Host", "Entrepreneur", "Humanitarian", "Advocate"]
+  }
 ];
 
-export const HeroSection: React.FC = () => {
-    const [idx, setIdx] = useState(0);
-    const [bg, setBg] = useState("#0e0e10");
-    const [titleIdx, setTitleIdx] = useState(0);
+export const HeroSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [bgColor, setBgColor] = useState("#0e0e10");
+  const [titleIndex, setTitleIndex] = useState(0);
 
-    // rotate images
-    useEffect(() => {
-        const iv = setInterval(() => {
-            setIdx((i) => (i + 1) % IMAGES.length);
-            setTitleIdx(0);
-        }, 7000);
-        return () => clearInterval(iv);
-    }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+      setTitleIndex(0);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
 
-    // extract dominant color
-    useEffect(() => {
-        const img = new Image();
-        img.crossOrigin = "Anonymous";
-        img.src = IMAGES[idx].src;
-        img.onload = () => {
-            try {
-                const thief = new ColorThief();
-                const [r, g, b] = thief.getColor(img as any);
-                setBg(`rgb(${r}, ${g}, ${b})`);
-            } catch {
-                setBg("#0e0e10");
-            }
-        };
-    }, [idx]);
+  useEffect(() => {
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.src = images[currentIndex].src;
+    img.onload = () => {
+      try {
+        const colorThief = new ColorThief();
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx?.drawImage(img, 0, 0, img.width, img.height);
+        const rgb = ctx?.getImageData(0, 0, 1, 1).data;
+        if (rgb) {
+          const [r, g, b] = Array.from(rgb);
+          setBgColor(`rgb(${r}, ${g}, ${b})`);
+        }
+      } catch {
+        setBgColor("#0e0e10");
+      }
+    };
+  }, [currentIndex]);
 
-    // rotate titles
-    useEffect(() => {
-        const ti = setInterval(() => {
-            setTitleIdx((i) => (i + 1) % IMAGES[idx].titles.length);
-        }, 2500);
-        return () => clearInterval(ti);
-    }, [idx]);
+  useEffect(() => {
+    const titleInterval = setInterval(() => {
+      setTitleIndex((prev) =>
+        (prev + 1) % images[currentIndex].titles.length
+      );
+    }, 2500);
+    return () => clearInterval(titleInterval);
+  }, [currentIndex]);
 
-    return (
-        <Section style={{ background: bg }}>
-            <Left>
-                <Img src={IMAGES[idx].src} alt="Stella Whyte" />
-            </Left>
-            <Right>
-                <motion.h1
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    Mrs. Okhueileigbe Ebosetale
-                </motion.h1>
-                <motion.p
-                    key={titleIdx}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    {IMAGES[idx].titles[titleIdx]}
-                </motion.p>
-            </Right>
-        </Section>
-    );
+  return (
+    <section
+      className="w-full min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 transition-colors duration-1000"
+      style={{ backgroundColor: bgColor }}
+    >
+      {/* Left - Floating Image */}
+      <div className="relative w-64 h-64 md:w-[400px] md:h-[500px] mb-10 md:mb-0">
+        <img
+          src={images[currentIndex].src}
+          alt="Stella Whyte"
+          className="w-full h-full object-contain rounded-xl shadow-2xl z-10 relative"
+        />
+        <div className="absolute inset-0 rounded-xl bg-white/10 backdrop-blur-2xl z-0 animate-pulse shadow-xl" />
+      </div>
+
+      {/* Right - Text */}
+      <div className="text-center md:text-left md:pl-16">
+        <motion.h1
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-4xl md:text-6xl font-bold text-white font-[Playfair_Display] mb-4"
+        >
+          Mrs. Okhueileigbe Ebosetale
+        </motion.h1>
+
+        <motion.p
+          key={titleIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="text-xl md:text-2xl text-yellow-300 font-[Outfit] tracking-wide"
+        >
+          {images[currentIndex].titles[titleIndex]}
+        </motion.p>
+      </div>
+    </section>
+  );
 };
-
-// animations
-const fadeIn = keyframes`
- from { opacity: 0; }
- to   { opacity: 1; }
-`;
-
-// layout
-const Section = styled.section`
-  display: flex;
-  height: 100vh;
-  transition: background 1s ease;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-const Left = styled.div`
-  flex: 3;
-  overflow: hidden;
-`;
-
-const Right = styled.div`
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
-  color: #fff;
-
-  h1 {
-    font-family: "Playfair Display", serif;
-    color: #facc15;
-    font-size: clamp(2rem, 5vw, 4rem);
-    animation: ${fadeIn} 0.8s ease-out;
-    margin: 0;
-  }
-  p {
-    font-family: "Inter", sans-serif;
-    font-size: clamp(1rem, 3vw, 2rem);
-    animation: ${fadeIn} 0.5s ease-out;
-    margin: 0.5rem 0 0;
-  }
-`;
-
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: ${fadeIn} 1s ease-out;
-`;
