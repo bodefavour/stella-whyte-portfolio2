@@ -1,45 +1,46 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ColorThief from "colorthief";
 
+import stella1 from "../assets/stella1.png";
+import stella2 from "../assets/stella2.png";
+import stella3 from "../assets/stella3.png";
+
 const images = [
   {
-    src: "/assets/stella1.png", // transparent or subject-only image
+    src: stella1,
     titles: ["Model", "Philanthropist", "Golf Champion", "Media Personality"],
   },
   {
-    src: "/assets/stella2.png",
+    src: stella2,
     titles: ["Founder", "Beauty Queen", "Influencer", "Public Speaker"],
   },
   {
-    src: "/assets/stella3.png",
+    src: stella3,
     titles: ["TV Host", "Entrepreneur", "Humanitarian", "Advocate"],
   },
 ];
 
+function getBrightness(r: number, g: number, b: number): number {
+  return (r * 299 + g * 587 + b * 114) / 1000;
+}
+
 export const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [bgColor, setBgColor] = useState("rgb(20,20,20)");
+  const [bgColor, setBgColor] = useState("#f9f9f9");
+  const [textColor, setTextColor] = useState("black");
   const [titleIndex, setTitleIndex] = useState(0);
-  const imageRef = useRef<HTMLImageElement | null>(null);
 
+  // Change images
   useEffect(() => {
-    const interval = setInterval(() => {
+    const imageCycle = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
       setTitleIndex(0);
-    }, 7000);
-    return () => clearInterval(interval);
+    }, 8000);
+    return () => clearInterval(imageCycle);
   }, []);
 
-  useEffect(() => {
-    const titleInterval = setInterval(() => {
-      setTitleIndex((prev) =>
-        (prev + 1) % images[currentIndex].titles.length
-      );
-    }, 2500);
-    return () => clearInterval(titleInterval);
-  }, [currentIndex]);
-
+  // Get dominant color
   useEffect(() => {
     const img = new Image();
     img.crossOrigin = "Anonymous";
@@ -51,53 +52,64 @@ export const HeroSection = () => {
         const ctx = canvas.getContext("2d");
         canvas.width = img.width;
         canvas.height = img.height;
-        ctx?.drawImage(img, 0, 0);
+        ctx?.drawImage(img, 0, 0, img.width, img.height);
         const rgb = ctx?.getImageData(0, 0, 1, 1).data;
         if (rgb) {
-          const [r, g, b] = Array.from(rgb);
+          const r = rgb[0];
+          const g = rgb[1];
+          const b = rgb[2];
           setBgColor(`rgb(${r}, ${g}, ${b})`);
+          const brightness = getBrightness(r, g, b);
+          setTextColor(brightness < 128 ? "white" : "black");
         }
-      } catch (err) {
-        console.warn("Color extraction failed", err);
-        setBgColor("rgb(30,30,30)");
+      } catch (e) {
+        setBgColor("#f2f2f2");
+        setTextColor("black");
       }
     };
   }, [currentIndex]);
 
+  // Cycle titles
+  useEffect(() => {
+    const titleCycle = setInterval(() => {
+      setTitleIndex((prev) =>
+        (prev + 1) % images[currentIndex].titles.length
+      );
+    }, 2500);
+    return () => clearInterval(titleCycle);
+  }, [currentIndex]);
+
   return (
     <section
-      className="w-full h-screen flex items-center justify-center px-6 md:px-16 transition-colors duration-1000 relative overflow-hidden"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-between transition-colors duration-1000 px-8 md:px-20 py-10"
       style={{ backgroundColor: bgColor }}
     >
-      {/* Glow Behind Image */}
-      <motion.div
-        className="absolute left-4 md:left-16 w-[300px] md:w-[400px] aspect-[3/4] blur-3xl rounded-full z-0"
-        style={{ backgroundColor: bgColor }}
-        animate={{ opacity: 0.4, scale: 1.3 }}
-        transition={{ duration: 1 }}
-      />
-
-      {/* Image Section */}
-      <div className="relative w-1/2 h-auto flex items-center justify-center z-10">
-        <motion.img
-          key={images[currentIndex].src}
-          ref={imageRef}
-          src={images[currentIndex].src}
-          alt="Stella Whyte"
-          className="h-[400px] md:h-[500px] object-contain drop-shadow-2xl"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        />
+      {/* Left - Image with glow */}
+      <div className="w-full md:w-3/5 flex justify-center relative z-10">
+        <div className="relative rounded-full shadow-xl p-4 bg-white/10 backdrop-blur-md">
+          <img
+            src={images[currentIndex].src}
+            alt="Stella"
+            className="h-[400px] md:h-[500px] object-contain drop-shadow-xl"
+          />
+          {/* Glowing background */}
+          <div
+            className="absolute inset-0 blur-3xl opacity-50 rounded-full"
+            style={{ backgroundColor: bgColor }}
+          ></div>
+        </div>
       </div>
 
-      {/* Text Section */}
-      <div className="w-1/2 z-10 text-left md:pl-16">
+      {/* Right - Text */}
+      <div
+        className="w-full md:w-2/5 text-center md:text-left mt-10 md:mt-0 z-20"
+        style={{ color: textColor }}
+      >
         <motion.h1
-          className="text-4xl md:text-6xl font-serif text-white font-bold leading-tight"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
+          className="text-4xl md:text-6xl font-bold font-playfair"
         >
           Mrs. Okhueileigbe Ebosetale
         </motion.h1>
@@ -105,23 +117,23 @@ export const HeroSection = () => {
         <AnimatePresence mode="wait">
           <motion.p
             key={titleIndex}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.6 }}
-            className="mt-4 text-xl md:text-2xl font-light text-white/90 font-sans"
+            exit={{ opacity: 0, y: -5 }}
+            transition={{ duration: 0.5 }}
+            className="text-lg md:text-2xl font-outfit tracking-wide mt-4"
           >
             {images[currentIndex].titles[titleIndex]}
           </motion.p>
         </AnimatePresence>
 
         <motion.p
-          className="mt-6 text-base md:text-lg text-white/70 italic"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="mt-6 text-base md:text-lg font-light font-outfit italic"
         >
-          “Grace. Power. Purpose.”
+          Building Legacies Through Grace and Grit
         </motion.p>
       </div>
     </section>
