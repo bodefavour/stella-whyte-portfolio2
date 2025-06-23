@@ -64,7 +64,7 @@ export const TimelineCarousel = () => {
   return (
     <section className="bg-[#0e0e10] py-20 text-white relative">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-white-400 mb-12">
+        <h2 className="text-4xl font-serif text-center text-yellow-400 mb-12">
           Her Journey Through Time
         </h2>
 
