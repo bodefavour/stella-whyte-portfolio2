@@ -87,3 +87,63 @@ export const TimelineSection = () => (
     </div>
   </section>
 );
+
+import { Chrono } from "react-chrono";
+
+const items = [
+  {
+    title: "Dec 2021",
+    cardTitle: "International Justice of Peace",
+    cardSubtitle: "Global peace advocate recognition",
+    icon: "/icons/justice.svg",
+  },
+  {
+    title: "Oct 2022",
+    cardTitle: "MON National Honour",
+    cardSubtitle: "Member of the Order of Niger",
+    icon: "/icons/medal.svg",
+  },
+  {
+    title: "Jul 2023",
+    cardTitle: "Royal Honorary Fellow",
+    cardSubtitle: "Award from King Charles III’s reps",
+    icon: "/icons/crown.svg",
+  },
+  {
+    title: "Sep 2023",
+    cardTitle: "CEO Golf Cup Winner",
+    cardSubtitle: "International Golf Champion",
+    icon: "/icons/golf.svg",
+  },
+];
+
+export const TimelineSection: React.FC = () => (
+  <section className="bg-[#0f0f13] text-white py-24">
+    <div className="max-w-6xl mx-auto px-6">
+      <h2 className="text-4xl font-serif text-center mb-8">Milestone Journey</h2>
+      <Chrono
+        items={items}
+        mode="HORIZONTAL"
+        slideShow
+        slideItemDuration={5000}
+        enableOutline
+        cardHeight={220}
+        theme={{
+          primary: "#facc15",
+          secondary: "#fff",
+          cardBgColor: "#1a1a1f",
+          cardForeColor: "#f0f0f0",
+          titleColor: "#facc15",
+        }}
+        useReadMore={false}
+        hideControls={false}
+      >
+        <div className="chrono-icons">
+          {items.map((item) => (
+            <img key={item.title} src={item.icon} alt="" className="w-8 h-8" />
+          ))}
+        </div>
+      </Chrono>
+    </div>
+  </section>
+);
