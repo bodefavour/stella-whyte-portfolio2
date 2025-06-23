@@ -3,27 +3,29 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import stella1 from "../assets/stella1.png";
+
 const timelineData = [
   {
     date: "Dec 2021",
     title: "International Justice of Peace",
     subtitle: "Global Peace Award",
     type: "image",
-    src: "/assets/timeline/peace.jpg",
+    src: stella1,
   },
   {
     date: "Oct 2022",
     title: "MON National Honour",
     subtitle: "Order of Niger by the President",
     type: "video",
-    src: "/assets/timeline/award.mp4",
+    src: stella1,
   },
   {
     date: "Jul 2023",
     title: "Royal Honorary Fellow",
     subtitle: "Presented by UK royal envoys",
     type: "image",
-    src: "/assets/timeline/royal.jpg",
+    src: stella1,
   },
 ];
 
