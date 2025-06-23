@@ -65,7 +65,9 @@ export const NavHeroCombo = () => {
         ctx?.drawImage(img, 0, 0, img.width, img.height);
         const rgb = ctx?.getImageData(0, 0, 1, 1).data;
         if (rgb) {
-          const [r, g, b] = rgb;
+          const r = rgb[0];
+          const g = rgb[1];
+          const b = rgb[2];
           setBgColor(`rgb(${r}, ${g}, ${b})`);
           const brightness = getBrightness(r, g, b);
           setTextColor(brightness < 128 ? "white" : "black");
