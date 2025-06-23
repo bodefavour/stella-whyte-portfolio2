@@ -5,8 +5,8 @@ import {
   FaBriefcase,
   FaMicrophone,
   FaHeart,
-  IconType,
 } from "react-icons/fa";
+import { IconType } from "react-icons";
 
 type Highlight = {
   icon: IconType;
