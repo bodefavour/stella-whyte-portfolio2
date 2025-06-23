@@ -17,6 +17,7 @@
     "colorthief": "^2.6.0",
     "framer-motion": "^12.18.1",
     "react": "^19.1.0",
+    "react-chrono": "^2.9.1",
     "react-dom": "^19.1.0",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.19",
