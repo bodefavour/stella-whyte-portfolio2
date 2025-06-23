@@ -1,10 +1,12 @@
 import React from "react";
-import { HeroSection } from "./components/HeroSection";
+import { NavHeroCombo } from "./components/HeroSection";
+import AchievementSection from "./components/achievement";
 
 const App: React.FC = () => {
   return (
     <main>
-      <HeroSection />
+      <NavHeroCombo />
+      <AchievementSection />
     </main>
   );
 };
