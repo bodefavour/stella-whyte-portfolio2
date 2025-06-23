@@ -1,75 +1,89 @@
 import { motion } from "framer-motion";
-import stella1 from "../assets/stella1.png";
 
-const timeline = [
+interface Milestone {
+  date: string;
+  title: string;
+  subtitle: string;
+  icon: string; // use your own asset paths
+}
+
+const milestones: Milestone[] = [
   {
-    year: "2005",
-    title: "Crowned Miss Nigeria",
-    description: "Launched into the spotlight with grace and poise.",
-    icon: stella1,
+    date: "Dec 2021",
+    title: "International Justice of Peace",
+    subtitle: "Global peace advocate recognition",
+    icon: "/icons/justice.svg",
   },
   {
-    year: "2010",
-    title: "Founded Grace Foundation",
-    description: "Began philanthropic work across West Africa.",
-    icon: stella1,
+    date: "Oct 2022",
+    title: "Member of the Order of Niger (MON)",
+    subtitle: "National honour from Nigeria",
+    icon: "/icons/medal.svg",
   },
   {
-    year: "2018",
-    title: "Launched ‘Glow by Stella’",
-    description: "Luxury skincare line for the modern African woman.",
-    icon: stella1,
+    date: "Jul 2023",
+    title: "Honorary Fellow, Royal Recognition",
+    subtitle: "Award from King Charles III’s reps",
+    icon: "/icons/crown.svg",
   },
   {
-    year: "2023",
-    title: "Global Media Personality",
-    description: "Recognized by Forbes for influence and impact.",
-    icon: stella1,
+    date: "Sep 2023",
+    title: "CEO Golf Cup Winner",
+    subtitle: "Zanzibar international golf champion",
+    icon: "/icons/golf.svg",
   },
 ];
 
-export const TimelineSection = () => {
-  return (
-    <section className="w-full py-20 px-6 md:px-20 bg-[#0f0f0f] text-white relative">
-      <div className="text-center mb-14">
-        <h2 className="text-3xl md:text-5xl font-serif font-bold mb-2">
-          A Journey of Grace
-        </h2>
-        <p className="text-white/70 font-light text-lg">
-          Milestones that shaped the legacy of Stella Whyte
-        </p>
-      </div>
+export const TimelineSection = () => (
+  <section className="w-full py-24 bg-[#0f0f13] text-white">
+    <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <h2 className="text-4xl font-serif font-bold text-center mb-12">
+        A Roadmap of Impact & Excellence
+      </h2>
 
-      <div className="relative border-l-[2px] border-white/20 pl-6 md:pl-12">
-        {timeline.map((item, index) => (
+      {/* Horizontal timeline (desktop) */}
+      <div className="hidden md:flex items-center space-x-16 overflow-x-auto py-4">
+        {milestones.map((m, idx) => (
           <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
+            key={idx}
+            className="relative flex-shrink-0 w-64"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: idx * 0.2, duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-12 relative"
           >
-            {/* Dot + Icon */}
-            <div className="absolute -left-[38px] w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
-              <img src={item.icon} alt="icon" className="w-4 h-4" />
-            </div>
+            <div className="h-1 bg-white/20 w-full absolute top-10 left-0"></div>
 
-            {/* Content */}
-            <div className="pl-4">
-              <p className="text-sm uppercase tracking-widest text-yellow-400">
-                {item.year}
-              </p>
-              <h3 className="text-2xl md:text-3xl font-semibold font-serif mt-1">
-                {item.title}
+            <div className="bg-[#1a1a1f] px-6 py-8 rounded-2xl shadow-xl relative z-10">
+              <img src={m.icon} alt={m.title} className="w-12 h-12 mb-4" />
+              <p className="text-sm text-yellow-300 mb-2">{m.date}</p>
+              <h3 className="text-xl font-semibold font-serif mb-1">
+                {m.title}
               </h3>
-              <p className="text-white/70 text-base mt-2 font-light">
-                {item.description}
-              </p>
+              <p className="text-white/70 text-sm">{m.subtitle}</p>
             </div>
           </motion.div>
         ))}
       </div>
-    </section>
-  );
-};
+
+      {/* Vertical timeline (mobile) */}
+      <div className="md:hidden space-y-12">
+        {milestones.map((m, idx) => (
+          <motion.div
+            key={idx}
+            className="relative pl-12"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: idx * 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="absolute left-0 top-3 w-6 h-6 bg-yellow-400 rounded-full"></div>
+            <p className="text-sm text-yellow-300">{m.date}</p>
+            <h3 className="text-xl font-semibold font-serif mt-1">{m.title}</h3>
+            <p className="text-white/70 text-sm">{m.subtitle}</p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
