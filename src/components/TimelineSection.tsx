@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import stella1 from "../assets/stella1.png";
+import stella2 from "../assets/stella2.png";
+import stella3 from "../assets/stella3.png";
 
 interface Milestone {
   date: string;
@@ -12,25 +15,25 @@ const milestones: Milestone[] = [
     date: "Dec 2021",
     title: "International Justice of Peace",
     subtitle: "Global peace advocate recognition",
-    icon: "/icons/justice.svg",
+    icon: stella1,
   },
   {
     date: "Oct 2022",
     title: "Member of the Order of Niger (MON)",
     subtitle: "National honour from Nigeria",
-    icon: "/icons/medal.svg",
+    icon: stella1,
   },
   {
     date: "Jul 2023",
     title: "Honorary Fellow, Royal Recognition",
     subtitle: "Award from King Charles III’s reps",
-    icon: "/icons/crown.svg",
+    icon: stella1,
   },
   {
     date: "Sep 2023",
     title: "CEO Golf Cup Winner",
     subtitle: "Zanzibar international golf champion",
-    icon: "/icons/golf.svg",
+    icon: stella1,
   },
 ];
 
