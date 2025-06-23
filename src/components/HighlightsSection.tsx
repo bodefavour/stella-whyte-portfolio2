@@ -7,6 +7,7 @@ import {
   FaHeart,
 } from "react-icons/fa";
 import { IconType } from "react-icons";
+import React from "react";
 
 type Highlight = {
   icon: IconType; // <-- Use IconType here
@@ -60,7 +61,7 @@ export const HighlightsSection = () => {
             className="bg-[#1a1a1a] p-8 rounded-2xl shadow-md hover:shadow-yellow-400/40 hover:scale-105 transition-all duration-500 border border-yellow-900/30 backdrop-blur-md"
           >
             <div className="mb-4">
-              {Icon && <Icon size={36} className="text-yellow-400" />}
+              {Icon && React.createElement(Icon, { size: 36, className: "text-yellow-400" })}
             </div>
             <h3 className="text-xl font-semibold mb-2 text-yellow-300">{title}</h3>
             <p className="text-gray-300">{description}</p>
