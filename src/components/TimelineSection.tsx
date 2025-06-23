@@ -1,5 +1,9 @@
 import { Chrono } from "react-chrono";
 
+import stella1 from "../assets/stella1.png";
+import stella2 from "../assets/stella2.png";
+import stella3 from "../assets/stella3.png";
+
 const items = [
   {
     date: "Dec 2021",
