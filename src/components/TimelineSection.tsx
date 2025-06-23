@@ -1,63 +1,98 @@
-import { Chrono } from "react-chrono";
+import Slider from "react-slick";
+import { motion } from "framer-motion";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-import stella1 from "../assets/stella1.png";
-import stella2 from "../assets/stella2.png";
-import stella3 from "../assets/stella3.png";
-
-const items = [
+const timelineData = [
   {
     date: "Dec 2021",
     title: "International Justice of Peace",
-    subtitle: "Global peace advocate recognition",
-    icon: stella1,
+    subtitle: "Global Peace Award",
+    type: "image",
+    src: "/assets/timeline/peace.jpg",
   },
   {
     date: "Oct 2022",
-    title: "Member of the Order of Niger (MON)",
-    subtitle: "National honour from Nigeria",
-    icon: stella1,
+    title: "MON National Honour",
+    subtitle: "Order of Niger by the President",
+    type: "video",
+    src: "/assets/timeline/award.mp4",
   },
   {
     date: "Jul 2023",
-    title: "Honorary Fellow, Royal Recognition",
-    subtitle: "Award from King Charles III’s reps",
-    icon: stella1,
-  },
-  {
-    date: "Sep 2023",
-    title: "CEO Golf Cup Winner",
-    subtitle: "Zanzibar international golf champion",
-    icon: stella1,
+    title: "Royal Honorary Fellow",
+    subtitle: "Presented by UK royal envoys",
+    type: "image",
+    src: "/assets/timeline/royal.jpg",
   },
 ];
 
-export const TimelineSection: React.FC = () => (
-  <section className="bg-[#0f0f13] text-white py-24">
-    <div className="max-w-6xl mx-auto px-6">
-      <h2 className="text-4xl font-serif text-center mb-8">Milestone Journey</h2>
-      <Chrono
-        items={items}
-        mode="HORIZONTAL"
-        slideShow
-        slideItemDuration={5000}
-        enableOutline
-        cardHeight={220}
-        theme={{
-          primary: "#facc15",
-          secondary: "#fff",
-          cardBgColor: "#1a1a1f",
-          cardForeColor: "#f0f0f0",
-          titleColor: "#facc15",
-        }}
-        useReadMore={false}
-        hideControls={false}
-      >
-        <div className="chrono-icons">
-          {items.map((item) => (
-            <img key={item.title} src={item.icon} alt="" className="w-8 h-8" />
+export const TimelineCarousel = () => {
+  const settings = {
+    centerMode: true,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 6000,
+    cssEase: "ease-in-out",
+    infinite: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          centerPadding: "20px",
+        },
+      },
+    ],
+  };
+
+  return (
+    <section className="bg-[#0e0e10] py-16 text-white">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-4xl font-serif text-center text-yellow-400 mb-10">
+          Her Journey Through Time
+        </h2>
+
+        <Slider {...settings}>
+          {timelineData.map((item, index) => (
+            <motion.div
+              key={index}
+              className="px-4"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="bg-[#1a1a1f] rounded-3xl overflow-hidden shadow-xl backdrop-blur-lg border border-yellow-300 relative">
+                {item.type === "image" ? (
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="w-full h-64 object-cover"
+                  />
+                ) : (
+                  <video
+                    src={item.src}
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full h-64 object-cover"
+                  />
+                )}
+
+                <div className="p-6">
+                  <h3 className="text-2xl font-serif text-yellow-300 mb-2">
+                    {item.date}
+                  </h3>
+                  <p className="text-xl font-semibold mb-1">{item.title}</p>
+                  <p className="text-sm text-gray-300">{item.subtitle}</p>
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </div>
-      </Chrono>
-    </div>
-  </section>
-);
+        </Slider>
+      </div>
+    </section>
+  );
+};
