@@ -10,7 +10,7 @@ import { IconType } from "react-icons";
 import React from "react";
 
 type Highlight = {
-  icon: React.ComponentType<{ size?: number; className?: string }>;
+  icon: any;
   title: string;
   description: string;
 };
