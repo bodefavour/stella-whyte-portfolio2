@@ -85,20 +85,17 @@ export const HeroSection = () => {
       style={{ backgroundColor: bgColor }}
     >
       {/* Left - Image with glow */}
-      <div className="w-full md:w-3/5 flex justify-center relative z-10">
-        <div className="relative rounded-full shadow-xl p-4 bg-white/10 backdrop-blur-md">
+      <div className="w-full md:w-/5 flex justify-center relative z-10">
+        <div className="relative p-6 rounded-full">
+          {/* Image with soft glow outline */}
           <img
             src={images[currentIndex].src}
             alt="Stella"
-            className="h-[400px] md:h-[500px] object-contain drop-shadow-xl"
+            className="h-[460px] md:h-[600px] object-contain transition-shadow border- duration-700"
           />
-          {/* Glowing background */}
-          <div
-            className="absolute inset-0 blur-3xl opacity-50 rounded-full"
-            style={{ backgroundColor: bgColor }}
-          ></div>
         </div>
       </div>
+
 
       {/* Right - Text */}
       <div
@@ -109,9 +106,9 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-4xl md:text-6xl font-bold font-playfair"
+          className="text-4xl md:text-7xl font-bold font-playfair"
         >
-          Mrs. Okhueileigbe Ebosetale
+          Okhueileigbe Ebosetale
         </motion.h1>
 
         <AnimatePresence mode="wait">
