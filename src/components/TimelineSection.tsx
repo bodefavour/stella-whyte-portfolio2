@@ -1,29 +1,30 @@
 import { motion } from "framer-motion";
+import stella1 from "../assets/stella1.png";
 
 const timeline = [
   {
     year: "2005",
     title: "Crowned Miss Nigeria",
     description: "Launched into the spotlight with grace and poise.",
-    icon: "/icons/crown.svg",
+    icon: stella1,
   },
   {
     year: "2010",
     title: "Founded Grace Foundation",
     description: "Began philanthropic work across West Africa.",
-    icon: "/icons/heart.svg",
+    icon: stella1,
   },
   {
     year: "2018",
     title: "Launched ‘Glow by Stella’",
     description: "Luxury skincare line for the modern African woman.",
-    icon: "/icons/beauty.svg",
+    icon: stella1,
   },
   {
     year: "2023",
     title: "Global Media Personality",
     description: "Recognized by Forbes for influence and impact.",
-    icon: "/icons/globe.svg",
+    icon: stella1,
   },
 ];
 
