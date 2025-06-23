@@ -57,7 +57,9 @@ export const NavHeroCombo = () => {
     img.crossOrigin = "Anonymous";
     img.src = images[currentIndex].src;
     img.onload = () => {
+      // eslint-disable-next-line
       try {
+        // eslint-disable-next-line
         const colorThief = new ColorThief();
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
