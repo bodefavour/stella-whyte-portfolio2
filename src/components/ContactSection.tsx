@@ -49,7 +49,7 @@ export const ContactSection: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaInstagram className="hover:text-yellow-300 transition" />
+           {FaInstagram({ className: "hover:text-yellow-300 transition" })}
           </a>
           <a
             href="https://www.facebook.com/superfmlagos"
