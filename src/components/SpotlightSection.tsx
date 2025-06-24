@@ -145,11 +145,17 @@ export const SpotlightSection = () => {
                       className="w-full h-full bg-black relative cursor-pointer"
                       onClick={() => setPlaying(true)}
                     >
-                      <img
-                        src={item.thumbnail}
-                        alt="thumbnail"
-                        className="w-full h-full object-cover"
-                      />
+                      {item.thumbnail ? (
+  <img
+    src={item.thumbnail}
+    alt="thumbnail"
+    className="w-full h-full object-cover"
+  />
+) : (
+  <div className="w-full h-full bg-gray-900 flex items-center justify-center">
+    <span className="text-yellow-300">Loading thumbnail...</span>
+  </div>
+)}
                       <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                         <div className="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center text-xl font-bold">
                           ▶
