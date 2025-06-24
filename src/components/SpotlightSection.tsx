@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import stella1 from "../assets/stella1.png";
 
 const spotlights = [
   {
@@ -12,7 +13,7 @@ const spotlights = [
   },
   {
     mediaType: "image",
-    src: "/assets/spotlight2.jpg",
+    src: stella1,
     title: "Impact Maker Award",
     description:
       "Honored by WHO IS WHO Awards for community leadership and impactful humanitarian efforts.",
@@ -20,7 +21,7 @@ const spotlights = [
   },
   {
     mediaType: "image",
-    src: "/assets/spotlight3.jpg",
+    src: stella1,
     title: "Vote Right Campaign",
     description:
       "Spearheading voter education and accountability across Nigeria through impactful grassroots campaigns.",
