@@ -48,15 +48,27 @@ const spotlights = [
 
 export const SpotlightSection = () => {
   const [index, setIndex] = useState(0);
+  const [showPlayer, setShowPlayer] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % spotlights.length);
-    }, 7000);
+      setShowPlayer(false);
+    }, 8000);
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const delay = setTimeout(() => setShowPlayer(true), 1500);
+    return () => clearTimeout(delay);
+  }, [index]);
+
   const item = spotlights[index];
+
+  const getYouTubeThumbnail = (url: string) => {
+    const match = url.match(/v=([^&]+)/);
+    return match ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg` : "";
+  };
 
   return (
     <section className="min-h-screen bg-black text-white py-16 px-6 md:px-20">
@@ -71,16 +83,38 @@ export const SpotlightSection = () => {
             className="relative rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md"
           >
             {item.mediaType === "video" ? (
-              <ReactPlayer
-                url={item.src}
-                playing
-                muted
-                controls={false}
-                loop
-                width="100%"
-                height="100%"
-                className="rounded-2xl"
-              />
+              showPlayer ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                  className="rounded-2xl overflow-hidden"
+                >
+                  <ReactPlayer
+                    url={item.src}
+                    playing
+                    muted
+                    controls={false}
+                    loop
+                    width="100%"
+                    height="100%"
+                    className="rounded-2xl"
+                  />
+                </motion.div>
+              ) : (
+                <div className="w-full h-[300px] bg-black/20 flex items-center justify-center relative">
+                  <img
+                    src={getYouTubeThumbnail(item.src)}
+                    alt="Preview thumbnail"
+                    className="w-full h-full object-cover blur-sm scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                    <div className="animate-pulse text-white text-lg font-outfit">
+                      Loading preview...
+                    </div>
+                  </div>
+                </div>
+              )
             ) : (
               <div className="bg-[#111] p-8 flex flex-col justify-center items-start h-full">
                 <h3 className="text-2xl font-playfair mb-4">{item.title}</h3>
@@ -130,7 +164,10 @@ export const SpotlightSection = () => {
         {spotlights.map((_, i) => (
           <button
             key={i}
-            onClick={() => setIndex(i)}
+            onClick={() => {
+              setIndex(i);
+              setShowPlayer(false);
+            }}
             className={`w-4 h-4 rounded-full ${
               index === i ? "bg-yellow-300" : "bg-gray-600"
             }`}
