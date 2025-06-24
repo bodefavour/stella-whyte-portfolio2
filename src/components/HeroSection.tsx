@@ -117,7 +117,7 @@ export const NavHeroCombo = () => {
       </nav>
 
       {/* HERO SECTION */}
-      <div className="w-full h-screen pt-28 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between relative z-10">
+      <div className="w-full h-screen pt-12 px-6 md:px-20 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-between relative z-10">
         {/* IMAGE */}
         <div className="relative w-full md:w-1/2 flex justify-center mb-10 md:mb-0">
           <div className="relative rounded-full p-4 bg-white/10 backdrop-blur-lg shadow-xl">
