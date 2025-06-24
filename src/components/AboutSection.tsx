@@ -28,7 +28,7 @@ export const AboutSection: React.FC = () => (
         viewport={{ once: true }}
       >
         <h2 className="text-3xl md:text-4xl font-playfair font-bold text-gray-900">
-          Meet Mrs. Okhueleigbe “Stella” Ebosetale, ACTI
+          Meet Miss Okhueleigbe “Stella” Ebosetale, ACTI
         </h2>
 
         <p className="text-lg font-outfit text-gray-700 leading-relaxed">
