@@ -5,6 +5,7 @@ import { TimelineCarousel } from "./components/TimelineSection";
 import { AboutSection } from "./components/AboutSection";
 import { HighlightsSection } from "./components/HighlightsSection";
 import { AchievementsCarousel } from "./components/achievement";
+import { SpotlightSection } from "./components/SpotlightSection";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
       <AboutSection />
       <HighlightsSection />
       <TimelineCarousel />
+<SpotlightSection />
 <AchievementsCarousel />
     </main>
   );
