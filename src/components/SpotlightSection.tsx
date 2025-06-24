@@ -4,13 +4,52 @@ import ReactPlayer from "react-player";
 import "keen-slider/keen-slider.min.css";
 
 // Helper to extract YouTube thumbnail
-function getYouTubeThumbnail(url: string): string {
-  const videoIdMatch = url.match(/(?:youtube\.com\/.*v=|youtu\.be\/)([^&]+)/);
-  return videoIdMatch
-    ? `https://img.youtube.com/vi/${videoIdMatch[1]}/hqdefault.jpg`
+const getYouTubeThumbnail = (url: string): string => {
+  const match = url.match(/(?:youtube\.com\/.*v=|youtu\.be\/)([^&]+)/);
+  return match
+    ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`
     : "";
-}
+};
 
+// Custom VideoPlayer with thumbnail preview
+const VideoPlayer = ({ url }: { url: string }) => {
+  const [playing, setPlaying] = useState(false);
+  const thumbnail = getYouTubeThumbnail(url);
+
+  return (
+    <div className="relative w-full pt-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
+      <div className="absolute top-0 left-0 w-full h-full">
+        {playing ? (
+          <ReactPlayer
+            url={url}
+            playing
+            controls
+            width="100%"
+            height="100%"
+          />
+        ) : (
+          <div
+            className="relative w-full h-full cursor-pointer"
+            onClick={() => setPlaying(true)}
+          >
+            <img
+              src={thumbnail}
+              alt="Video Thumbnail"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl text-2xl font-bold hover:scale-110 transition">
+                ▶
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// Spotlight content array
 const spotlights = [
   {
     id: "yourview",
@@ -54,55 +93,10 @@ const spotlights = [
   },
 ];
 
-// Custom YouTube Thumbnail Generator
-const getYouTubeThumbnail = (url: string): string => {
-  const match = url.match(/(?:youtube\.com\/.*v=|youtu\.be\/)([^&]+)/);
-  return match
-    ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`
-    : "";
-};
-
-// Custom VideoPlayer with Thumbnail Preview
-const VideoPlayer = ({ url }: { url: string }) => {
-  const [playing, setPlaying] = useState(false);
-  const thumbnail = getYouTubeThumbnail(url);
-
-  return (
-    <div className="relative w-full pt-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
-      <div className="absolute top-0 left-0 w-full h-full">
-        {playing ? (
-          <ReactPlayer
-            url={url}
-            playing
-            controls
-            width="100%"
-            height="100%"
-            className="rounded-2xl"
-          />
-        ) : (
-          <div
-            className="relative w-full h-full cursor-pointer"
-            onClick={() => setPlaying(true)}
-          >
-            <img
-              src={thumbnail}
-              alt="Video Thumbnail"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl text-2xl font-bold">
-                ▶
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
+// Spotlight Section
 export const SpotlightSection = () => {
   const [index, setIndex] = useState(0);
+  const item = spotlights[index];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -110,8 +104,6 @@ export const SpotlightSection = () => {
     }, 7000);
     return () => clearInterval(timer);
   }, []);
-
-  const item = spotlights[index];
 
   return (
     <section className="min-h-screen bg-black text-white py-16 px-6 md:px-20">
@@ -126,11 +118,7 @@ export const SpotlightSection = () => {
             className="relative rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md"
           >
             {item.mediaType === "video" ? (
-              <div className="relative w-full pt-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
-                <div className="absolute top-0 left-0 w-full h-full">
-                  <VideoPlayer url={item.src} />
-                </div>
-              </div>
+              <VideoPlayer url={item.src} />
             ) : (
               <div className="bg-[#111] p-8 flex flex-col justify-center items-start h-full">
                 <h3 className="text-2xl font-playfair mb-4">{item.title}</h3>
@@ -175,13 +163,13 @@ export const SpotlightSection = () => {
         </motion.div>
       </div>
 
-      {/* Navigation Dots */}
+      {/* Dots Navigation */}
       <div className="mt-8 flex justify-center space-x-4">
         {spotlights.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`w-4 h-4 rounded-full ${
+            className={`w-4 h-4 rounded-full transition ${
               index === i ? "bg-yellow-300" : "bg-gray-600"
             }`}
           />
