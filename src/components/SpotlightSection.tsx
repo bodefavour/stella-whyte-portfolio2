@@ -37,7 +37,7 @@ export const SpotlightSection = () => {
   return (
     <section className="min-h-screen bg-black text-white py-16 px-6 md:px-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode="wait">
           <motion.div
             key={item.id}
             initial={{ opacity: 0, x: -50 }}
