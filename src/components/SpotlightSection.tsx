@@ -46,9 +46,32 @@ const spotlights = [
   },
 ];
 
+const getYouTubeThumbnail = (url: string) => {
+  const match = url.match(/v=([^&]+)/);
+  return match ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg` : "";
+};
+
 export const SpotlightSection = () => {
   const [index, setIndex] = useState(0);
   const [showPlayer, setShowPlayer] = useState(false);
+  const [thumbnails, setThumbnails] = useState<{ [id: string]: string }>({});
+
+  // Preload all thumbnails once on mount
+  useEffect(() => {
+    const preload = () => {
+      const newThumbs: { [id: string]: string } = {};
+      spotlights.forEach((item) => {
+        if (item.mediaType === "video") {
+          const thumb = getYouTubeThumbnail(item.src);
+          newThumbs[item.id] = thumb;
+          const img = new Image();
+          img.src = thumb;
+        }
+      });
+      setThumbnails(newThumbs);
+    };
+    preload();
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -64,11 +87,6 @@ export const SpotlightSection = () => {
   }, [index]);
 
   const item = spotlights[index];
-
-  const getYouTubeThumbnail = (url: string) => {
-    const match = url.match(/v=([^&]+)/);
-    return match ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg` : "";
-  };
 
   return (
     <section className="min-h-screen bg-black text-white py-16 px-6 md:px-20">
@@ -104,12 +122,12 @@ export const SpotlightSection = () => {
               ) : (
                 <div className="w-full h-[300px] bg-black/20 flex items-center justify-center relative">
                   <img
-                    src={getYouTubeThumbnail(item.src)}
+                    src={thumbnails[item.id]}
                     alt="Preview thumbnail"
-                    className="w-full h-full object-cover blur-sm scale-105"
+                    className="w-full h-full object-cover scale-105 transition-opacity duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    <div className="animate-pulse text-white text-lg font-outfit">
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div className="text-white font-outfit animate-pulse">
                       Loading preview...
                     </div>
                   </div>
