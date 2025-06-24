@@ -54,6 +54,53 @@ const spotlights = [
   },
 ];
 
+// Custom YouTube Thumbnail Generator
+const getYouTubeThumbnail = (url: string): string => {
+  const match = url.match(/(?:youtube\.com\/.*v=|youtu\.be\/)([^&]+)/);
+  return match
+    ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`
+    : "";
+};
+
+// Custom VideoPlayer with Thumbnail Preview
+const VideoPlayer = ({ url }: { url: string }) => {
+  const [playing, setPlaying] = useState(false);
+  const thumbnail = getYouTubeThumbnail(url);
+
+  return (
+    <div className="relative w-full pt-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
+      <div className="absolute top-0 left-0 w-full h-full">
+        {playing ? (
+          <ReactPlayer
+            url={url}
+            playing
+            controls
+            width="100%"
+            height="100%"
+            className="rounded-2xl"
+          />
+        ) : (
+          <div
+            className="relative w-full h-full cursor-pointer"
+            onClick={() => setPlaying(true)}
+          >
+            <img
+              src={thumbnail}
+              alt="Video Thumbnail"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl text-2xl font-bold">
+                ▶
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
 export const SpotlightSection = () => {
   const [index, setIndex] = useState(0);
 
@@ -81,15 +128,7 @@ export const SpotlightSection = () => {
             {item.mediaType === "video" ? (
               <div className="relative w-full pt-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
                 <div className="absolute top-0 left-0 w-full h-full">
-                  <ReactPlayer
-                    url={item.src}
-                    light={getYouTubeThumbnail(item.src)}
-                    playing={false}
-                    controls
-                    width="100%"
-                    height="100%"
-                    className="rounded-2xl"
-                  />
+                  <VideoPlayer url={item.src} />
                 </div>
               </div>
             ) : (
