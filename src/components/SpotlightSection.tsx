@@ -3,6 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import ReactPlayer from "react-player";
 import "keen-slider/keen-slider.min.css";
 
+// Helper to extract YouTube thumbnail
+function getYouTubeThumbnail(url: string): string {
+  const videoIdMatch = url.match(/(?:youtube\.com\/.*v=|youtu\.be\/)([^&]+)/);
+  return videoIdMatch
+    ? `https://img.youtube.com/vi/${videoIdMatch[1]}/hqdefault.jpg`
+    : "";
+}
+
 const spotlights = [
   {
     id: "yourview",
@@ -46,18 +54,12 @@ const spotlights = [
   },
 ];
 
-const getYouTubeThumbnail = (url: string) => {
-  const match = url.match(/v=([^&]+)/);
-  return match ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg` : "";
-};
-
 export const SpotlightSection = () => {
   const [index, setIndex] = useState(0);
 
-  // Auto-cycle spotlights
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((i) => (i + 1) % spotlights.length);
+      setIndex((prev) => (prev + 1) % spotlights.length);
     }, 7000);
     return () => clearInterval(timer);
   }, []);
@@ -77,19 +79,20 @@ export const SpotlightSection = () => {
             className="relative rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md"
           >
             {item.mediaType === "video" ? (
-  <div className="relative w-full pt-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
-    <div className="absolute top-0 left-0 w-full h-full">
-      <ReactPlayer
-        url={item.src}
-        light={getYouTubeThumbnail(item.src)}
-        playing={false}
-        controls
-        width="100%"
-        height="100%"
-        className="rounded-2xl"
-      />
-    </div>
-  </div>
+              <div className="relative w-full pt-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
+                <div className="absolute top-0 left-0 w-full h-full">
+                  <ReactPlayer
+                    url={item.src}
+                    light={getYouTubeThumbnail(item.src)}
+                    playing={false}
+                    controls
+                    width="100%"
+                    height="100%"
+                    className="rounded-2xl"
+                  />
+                </div>
+              </div>
+            ) : (
               <div className="bg-[#111] p-8 flex flex-col justify-center items-start h-full">
                 <h3 className="text-2xl font-playfair mb-4">{item.title}</h3>
                 <p className="text-gray-300 mb-6">{item.description}</p>
@@ -103,6 +106,7 @@ export const SpotlightSection = () => {
                 </a>
               </div>
             )}
+            <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
           </motion.div>
         </AnimatePresence>
 
