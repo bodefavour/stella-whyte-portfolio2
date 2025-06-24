@@ -30,7 +30,7 @@ const spotlights: SpotlightItem[] = [
   {
     id: "superfm",
     mediaType: "video",
-    src: "https://www.facebook.com/superfmlagos/videos/-what-a-powerful-session-ebosetale-okhueleigbe-just-shook-the-table-on-todays-wo/1729418551031043/",
+    src: "https://www.facebook.com/superfmlagos/videos/1729418551031043/",
     title: "Super FM: A Powerful Session",
     description:
       "She shook the table on *Women of Dignity* at Super FM Lagos — May 2025.",
@@ -65,6 +65,9 @@ export const SpotlightSection = () => {
 
   const item = spotlights[index];
 
+  const isFacebookVideo = (url: string) =>
+    url.includes("facebook.com") && item.mediaType === "video";
+
   return (
     <section className="min-h-screen bg-black text-white py-16 px-6 md:px-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -80,17 +83,30 @@ export const SpotlightSection = () => {
             {item.mediaType === "video" ? (
               <div className="relative w-full pt-[56.25%] rounded-2xl overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full">
-                  <ReactPlayer
-                    url={item.src}
-                    playing
-                    controls={false}
-                    muted
-                    width="100%"
-                    height="100%"
-                    config={{
-                      facebook: { appId: "12345" },
-                    }}
-                  />
+                  {isFacebookVideo(item.src) ? (
+                    <iframe
+                      src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(
+                        item.src
+                      )}`}
+                      width="100%"
+                      height="100%"
+                      style={{ border: "none", overflow: "hidden" }}
+                      scrolling="no"
+                      frameBorder="0"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                      allowFullScreen
+                      title="Facebook video"
+                    />
+                  ) : (
+                    <ReactPlayer
+                      url={item.src}
+                      playing
+                      controls
+                      muted
+                      width="100%"
+                      height="100%"
+                    />
+                  )}
                 </div>
               </div>
             ) : (
