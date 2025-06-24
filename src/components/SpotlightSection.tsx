@@ -4,17 +4,30 @@ import ReactPlayer from "react-player";
 import "keen-slider/keen-slider.min.css";
 
 // Helper to extract YouTube thumbnail
-const getYouTubeThumbnail = (url: string): string => {
+const getYouTubeThumbnail = (url: string): Promise<string> => {
   const match = url.match(/(?:youtube\.com\/.*v=|youtu\.be\/)([^&]+)/);
-  return match
-    ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`
-    : "";
+  if (!match) return Promise.resolve("");
+
+  const videoId = match[1];
+  const maxResUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  const fallbackUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.src = maxResUrl;
+    img.onload = () => resolve(maxResUrl);
+    img.onerror = () => resolve(fallbackUrl);
+  });
 };
 
 // Custom VideoPlayer with thumbnail preview
 const VideoPlayer = ({ url }: { url: string }) => {
   const [playing, setPlaying] = useState(false);
-  const thumbnail = getYouTubeThumbnail(url);
+  const [thumbnail, setThumbnail] = useState("");
+
+  useEffect(() => {
+    getYouTubeThumbnail(url).then(setThumbnail);
+  }, [url]);
 
   return (
     <div className="relative w-full pt-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
