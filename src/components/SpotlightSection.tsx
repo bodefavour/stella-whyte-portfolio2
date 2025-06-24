@@ -53,38 +53,14 @@ const getYouTubeThumbnail = (url: string) => {
 
 export const SpotlightSection = () => {
   const [index, setIndex] = useState(0);
-  const [showPlayer, setShowPlayer] = useState(false);
-  const [thumbnails, setThumbnails] = useState<{ [id: string]: string }>({});
 
-  // Preload all thumbnails once on mount
-  useEffect(() => {
-    const preload = () => {
-      const newThumbs: { [id: string]: string } = {};
-      spotlights.forEach((item) => {
-        if (item.mediaType === "video") {
-          const thumb = getYouTubeThumbnail(item.src);
-          newThumbs[item.id] = thumb;
-          const img = new Image();
-          img.src = thumb;
-        }
-      });
-      setThumbnails(newThumbs);
-    };
-    preload();
-  }, []);
-
+  // Auto-cycle spotlights
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % spotlights.length);
-      setShowPlayer(false);
-    }, 8000);
+      setIndex((i) => (i + 1) % spotlights.length);
+    }, 7000);
     return () => clearInterval(timer);
   }, []);
-
-  useEffect(() => {
-    const delay = setTimeout(() => setShowPlayer(true), 1500);
-    return () => clearTimeout(delay);
-  }, [index]);
 
   const item = spotlights[index];
 
@@ -101,38 +77,15 @@ export const SpotlightSection = () => {
             className="relative rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md"
           >
             {item.mediaType === "video" ? (
-              showPlayer ? (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8 }}
-                  className="rounded-2xl overflow-hidden"
-                >
-                  <ReactPlayer
-                    url={item.src}
-                    playing
-                    muted
-                    controls={false}
-                    loop
-                    width="100%"
-                    height="100%"
-                    className="rounded-2xl"
-                  />
-                </motion.div>
-              ) : (
-                <div className="w-full h-[300px] bg-black/20 flex items-center justify-center relative">
-                  <img
-                    src={thumbnails[item.id]}
-                    alt="Preview thumbnail"
-                    className="w-full h-full object-cover scale-105 transition-opacity duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <div className="text-white font-outfit animate-pulse">
-                      Loading preview...
-                    </div>
-                  </div>
-                </div>
-              )
+              <ReactPlayer
+                url={item.src}
+                light={getYouTubeThumbnail(item.src)}    // ← Light mode with YouTube thumbnail
+                playing={false}                          // only play on click
+                controls
+                width="100%"
+                height="100%"
+                className="rounded-2xl"
+              />
             ) : (
               <div className="bg-[#111] p-8 flex flex-col justify-center items-start h-full">
                 <h3 className="text-2xl font-playfair mb-4">{item.title}</h3>
@@ -147,7 +100,6 @@ export const SpotlightSection = () => {
                 </a>
               </div>
             )}
-            <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
           </motion.div>
         </AnimatePresence>
 
@@ -177,15 +129,12 @@ export const SpotlightSection = () => {
         </motion.div>
       </div>
 
-      {/* Navigation */}
+      {/* Navigation Dots */}
       <div className="mt-8 flex justify-center space-x-4">
         {spotlights.map((_, i) => (
           <button
             key={i}
-            onClick={() => {
-              setIndex(i);
-              setShowPlayer(false);
-            }}
+            onClick={() => setIndex(i)}
             className={`w-4 h-4 rounded-full ${
               index === i ? "bg-yellow-300" : "bg-gray-600"
             }`}
