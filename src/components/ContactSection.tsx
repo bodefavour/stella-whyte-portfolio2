@@ -56,27 +56,27 @@ export const ContactSection: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaFacebook className="hover:text-yellow-300 transition" />
+            {FaFacebook({ className: "hover:text-yellow-300 transition" })}
           </a>
           <a href="https://youtube.com/watch?v=5HDbfAlNxbQ" target="_blank" rel="noopener noreferrer">
-            <FaYoutube className="hover:text-yellow-300 transition" />
+            {FaYoutube({ className: "hover:text-yellow-300 transition" })}
           </a>
           <a
             href="https://www.tiktok.com/@whyte_ose"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaTiktok className="hover:text-yellow-300 transition" />
+           {FaTiktok({ className: "hover:text-yellow-300 transition" })}
           </a>
           <a
             href="https://linkedin.com/in/ebosetale-obozele-536a5a20b"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLinkedin className="hover:text-yellow-300 transition" />
+            {FaLinkedin({ className: "hover:text-yellow-300 transition" })}
           </a>
           <a href="mailto:africanwomenandtechnolgy@gmail.com">
-            <FaEnvelope className="hover:text-yellow-300 transition" />
+            {FaEnvelope({ className: "hover:text-yellow-300 transition" })}
           </a>
         </motion.div>
 
