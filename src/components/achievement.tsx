@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { AchievementCarousel } from "./components/AchievementCarousel";
+import "./AchievementCarousel.css";
 
 import stella1 from "../assets/stella1.png";
 import stella2 from "../assets/stella2.png";
