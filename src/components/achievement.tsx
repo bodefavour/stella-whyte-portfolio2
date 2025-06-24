@@ -2,30 +2,34 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "./AchievementCarousel.css";
 
+import stella1 from "../assets/stella1.png";
+import stella2 from "../assets/stella2.png";
+import stella3 from "../assets/stella3.png";
+
 const achievements = [
   {
     title: "Miss Nigeria – Tourism",
     year: "2016",
     description: "Crowned for cultural representation and tourism impact.",
-    image: "/assets/achieve1.jpg",
+    image: stella1,
   },
   {
     title: "Ambassador of Culture – Edo State",
     year: "2018",
     description: "Recognized by the state for promoting Edo heritage globally.",
-    image: "/assets/achieve2.jpg",
+    image: stella2,
   },
   {
     title: "Top 100 Influential Women",
     year: "2021",
     description: "Listed among Nigeria's most impactful women.",
-    image: "/assets/achieve3.jpg",
+    image: stella3,
   },
   {
     title: "Women’s Golf Invitational Champion",
     year: "2023",
     description: "Won the national title for women's golf excellence.",
-    image: "/assets/achieve4.jpg",
+    image: stella1,
   },
 ];
 
