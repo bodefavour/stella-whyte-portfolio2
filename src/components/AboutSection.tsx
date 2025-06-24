@@ -46,12 +46,6 @@ export const AboutSection: React.FC = () => (
         <p className="text-lg font-outfit text-gray-700 leading-relaxed">
           Her accolades include <strong>Humanitarian of the Year</strong>, the <strong>PR Times Africa Award</strong> on International Women’s Day, and the <strong>WHO IS WHO Impact Maker Award</strong>. Through compassionate leadership, Stella continues to champion equity, empowerment, and sustainable development across Africa.
         </p>
-
-        {/* Optional Contact Section */}
-        <div className="mt-6 text-sm text-gray-500 font-outfit">
-          <p>📞 +234 813 236 5498</p>
-          <p>✉️ Africanwomenandtechnology@gmail.com | ladysmartie@gmail.com</p>
-        </div>
       </motion.div>
     </div>
   </section>
