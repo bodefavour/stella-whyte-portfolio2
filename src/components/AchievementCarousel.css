@@ -1,0 +1,21 @@
+.carousel {
+  perspective: 2000px;
+}
+
+.card3d {
+  transition: transform 0.5s ease, filter 0.5s ease;
+  transform-style: preserve-3d;
+  will-change: transform, filter;
+}
+
+.card3d-center {
+  transform: scale(1.15);
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.card3d-side {
+  filter: blur(2px) brightness(0.7);
+  transform: scale(0.9) rotateY(10deg);
+  z-index: 1;
+}
