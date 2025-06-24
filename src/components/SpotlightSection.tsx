@@ -77,16 +77,19 @@ export const SpotlightSection = () => {
             className="relative rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md"
           >
             {item.mediaType === "video" ? (
-              <ReactPlayer
-                url={item.src}
-                light={getYouTubeThumbnail(item.src)}    // ← Light mode with YouTube thumbnail
-                playing={false}                          // only play on click
-                controls
-                width="100%"
-                height="100%"
-                className="rounded-2xl"
-              />
-            ) : (
+  <div className="relative w-full pt-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
+    <div className="absolute top-0 left-0 w-full h-full">
+      <ReactPlayer
+        url={item.src}
+        light={getYouTubeThumbnail(item.src)}
+        playing={false}
+        controls
+        width="100%"
+        height="100%"
+        className="rounded-2xl"
+      />
+    </div>
+  </div>
               <div className="bg-[#111] p-8 flex flex-col justify-center items-start h-full">
                 <h3 className="text-2xl font-playfair mb-4">{item.title}</h3>
                 <p className="text-gray-300 mb-6">{item.description}</p>
