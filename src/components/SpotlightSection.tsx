@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactPlayer from "react-player";
 
+// ⛳️ Types
 type SpotlightItem = {
   id: string;
   mediaType: "video" | "article";
@@ -11,6 +12,7 @@ type SpotlightItem = {
   thumbnail?: string;
 };
 
+// 👇 Original items
 const rawSpotlights: SpotlightItem[] = [
   {
     id: "yourview",
@@ -54,34 +56,31 @@ const rawSpotlights: SpotlightItem[] = [
   },
 ];
 
-// 🔍 Detect video thumbnails
+// ✅ Utility: Check if image exists
+const checkImage = (url: string): Promise<boolean> =>
+  new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+
+// ✅ Resolve thumbnails from source
 const resolveThumbnail = async (item: SpotlightItem): Promise<string> => {
   if (item.src.includes("youtube.com")) {
     const match = item.src.match(/v=([^&]+)/);
     const id = match?.[1];
     const maxres = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
     const fallback = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
-    return await checkImage(maxres) ? maxres : fallback;
+    return (await checkImage(maxres)) ? maxres : fallback;
   }
-
   if (item.src.includes("facebook.com")) {
-    return "https://www.facebook.com/images/fb_icon_325x325.png"; // Placeholder
+    return "https://www.facebook.com/images/fb_icon_325x325.png";
   }
-
   if (item.src.includes("instagram.com")) {
-    return "https://www.instagram.com/static/images/ico/favicon-200.png"; // Placeholder
+    return "https://www.instagram.com/static/images/ico/favicon-200.png";
   }
-
-  return "/article-thumb.jpg"; // Local fallback image
-};
-
-const checkImage = (url: string): Promise<boolean> => {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => resolve(true);
-    img.onerror = () => resolve(false);
-    img.src = url;
-  });
+  return "/article-thumb.jpg";
 };
 
 export const SpotlightSection = () => {
@@ -90,31 +89,32 @@ export const SpotlightSection = () => {
   const [loading, setLoading] = useState(true);
   const [playing, setPlaying] = useState(false);
 
+  // Load thumbnails on mount
   useEffect(() => {
-    const loadThumbnails = async () => {
+    const load = async () => {
       const updated = await Promise.all(
         rawSpotlights.map(async (item) => {
-          const thumbnail = await resolveThumbnail(item);
-          return { ...item, thumbnail };
+          const thumb = await resolveThumbnail(item);
+          return { ...item, thumbnail: thumb };
         })
       );
       setSpotlights(updated);
       setLoading(false);
     };
-
-    loadThumbnails();
+    load();
   }, []);
 
+  // Auto-switch unless playing
   useEffect(() => {
     const timer = setInterval(() => {
-      setPlaying(false);
-      setIndex((prev) => (prev + 1) % rawSpotlights.length);
+      if (!playing) {
+        setIndex((prev) => (prev + 1) % rawSpotlights.length);
+      }
     }, 10000);
     return () => clearInterval(timer);
-  }, []);
+  }, [playing]);
 
-  if (loading) return null; // Delay render until thumbnails are ready
-
+  if (loading) return null;
   const item = spotlights[index];
 
   return (
@@ -132,7 +132,23 @@ export const SpotlightSection = () => {
             {item.mediaType === "video" ? (
               <div className="relative w-full pt-[56.25%] rounded-2xl overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full">
-                  {playing ? (
+                  {!playing ? (
+                    <div
+                      className="relative w-full h-full cursor-pointer"
+                      onClick={() => setPlaying(true)}
+                    >
+                      <img
+                        src={item.thumbnail}
+                        alt="thumbnail"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center text-xl font-bold">
+                          ▶
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
                     <ReactPlayer
                       url={item.src}
                       playing
@@ -140,28 +156,6 @@ export const SpotlightSection = () => {
                       width="100%"
                       height="100%"
                     />
-                  ) : (
-                    <div
-                      className="w-full h-full bg-black relative cursor-pointer"
-                      onClick={() => setPlaying(true)}
-                    >
-                      {item.thumbnail ? (
-  <img
-    src={item.thumbnail}
-    alt="thumbnail"
-    className="w-full h-full object-cover"
-  />
-) : (
-  <div className="w-full h-full bg-gray-900 flex items-center justify-center">
-    <span className="text-yellow-300">Loading thumbnail...</span>
-  </div>
-)}
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center text-xl font-bold">
-                          ▶
-                        </div>
-                      </div>
-                    </div>
                   )}
                 </div>
               </div>
@@ -213,6 +207,7 @@ export const SpotlightSection = () => {
         </motion.div>
       </div>
 
+      {/* Navigation */}
       <div className="mt-8 flex justify-center space-x-4">
         {spotlights.map((_, i) => (
           <button
