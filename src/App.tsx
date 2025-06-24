@@ -4,7 +4,7 @@ import { NavHeroCombo } from "./components/HeroSection";
 import { TimelineCarousel } from "./components/TimelineSection";
 import { AboutSection } from "./components/AboutSection";
 import { HighlightsSection } from "./components/HighlightsSection";
-import { AchievementsCarousel } from "./components/achievement";
+//import { AchievementsCarousel } from "./components/achievement";
 import { SpotlightSection } from "./components/SpotlightSection";
 
 const App: React.FC = () => {
@@ -15,7 +15,6 @@ const App: React.FC = () => {
       <HighlightsSection />
       <TimelineCarousel />
 <SpotlightSection />
-<AchievementsCarousel />
     </main>
   );
 };
