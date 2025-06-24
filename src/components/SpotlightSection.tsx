@@ -1,117 +1,97 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import ReactPlayer from "react-player";
-import "keen-slider/keen-slider.min.css";
+import { motion } from "framer-motion";
 
 const spotlights = [
   {
-    id: "youview",
-    mediaType: "video",
-    src: "https://www.youtube.com/watch?v=5HDbfAlNxbQ",
-    title: "Exclusive: The Story You Haven't Heard",
+    title: "The Story You Haven't Heard",
+    platform: "YouTube - Your View TVC",
+    date: "5 June 2025",
+    url: "https://youtu.be/5HDbfAlNxbQ",
     description:
-      "Stella opens up in an intimate chat with *Your View TV* about her personal journey and lifestyle. — June 5, 2025.",
+      "A heartfelt chat about her lifestyle, journey, and inspiration.",
+    thumbnail: "https://img.youtube.com/vi/5HDbfAlNxbQ/0.jpg",
   },
   {
-    id: "thisday",
-    mediaType: "article",
-    src: "https://www.thisdaylive.com/2025/05/25/ebosetale-okhueleigbe-lauds-fgs-business-friendly-initiatives/",
-    title: "Lauds FG’s Business‑Friendly Initiatives",
+    title: "FG’s Business-Friendly Initiatives",
+    platform: "ThisDay Live",
+    date: "25 May 2025",
+    url: "https://www.thisdaylive.com/2025/05/25/ebosetale-okhueleigbe-lauds-fgs-business-friendly-initiatives/",
     description:
-      "Stella praises Nigeria’s tax incentives and business support at Africa Trade Consortium — May 25, 2025.",
+      "She comments on the federal government’s economic strategies.",
+    thumbnail: "/assets/thisday-thumbnail.jpg",
+  },
+  {
+    title: "Powerful Session on SuperFM",
+    platform: "Facebook Live",
+    url: "https://www.facebook.com/superfmlagos/videos/-what-a-powerful-session-ebosetale-okhueleigbe-just-shook-the-table-on-todays-wo/1729418551031043/",
+    description:
+      "A powerful session where she shook the table on women’s issues.",
+    thumbnail: "/assets/fb-session.jpg",
+  },
+  {
+    title: "Instagram Advocacy Highlight",
+    platform: "Instagram Reel",
+    url: "https://www.instagram.com/reel/DKwi-AvsqGW/",
+    description:
+      "Quick visual insight into her advocacy and daily moments.",
+    thumbnail: "/assets/ig-highlight.jpg",
+  },
+  {
+    title: "Speech on Leadership",
+    platform: "YouTube",
+    url: "https://youtu.be/bwYtcfZDjRo",
+    description:
+      "A motivating speech clip on leadership & values.",
+    thumbnail: "https://img.youtube.com/vi/bwYtcfZDjRo/0.jpg",
   },
 ];
 
 export const SpotlightSection = () => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % spotlights.length);
-    }, 7000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const item = spotlights[index];
-
   return (
-    <section className="min-h-screen bg-black text-white py-16 px-6 md:px-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 50 }}
-            transition={{ duration: 0.8 }}
-            className="relative rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md"
-          >
-            {item.mediaType === "video" ? (
-              <ReactPlayer
-                url={item.src}
-                playing
-                muted
-                controls={false}
-                loop
-                width="100%"
-                height="100%"
-                className="rounded-2xl"
-              />
-            ) : (
-              <div className="bg-[#111] p-8 flex flex-col justify-center items-start h-full">
-                <h3 className="text-2xl font-playfair mb-4">{item.title}</h3>
-                <p className="text-gray-300 mb-6">{item.description}</p>
-                <a
-                  href={item.src}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-2 bg-yellow-300 text-black font-medium rounded-full hover:bg-yellow-400 transition"
-                >
-                  Read Article
-                </a>
-              </div>
-            )}
-            <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
-          </motion.div>
-        </AnimatePresence>
-
-        <motion.div
-          key={item.id + "-text"}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+    <section className="py-20 px-6 md:px-20 bg-gradient-to-b from-[#f7f7f7] to-[#e6e6e6] text-gray-900">
+      <div className="max-w-7xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-6"
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-playfair font-bold text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-playfair text-yellow-300">
-            {item.title}
-          </h2>
-          <p className="text-lg md:text-xl font-outfit text-gray-200">
-            {item.description}
-          </p>
-          {item.mediaType === "video" && (
-            <a
-              href={item.src}
+          Spotlight
+        </motion.h2>
+
+        <div className="flex flex-col md:flex-row md:flex-wrap gap-8 justify-center">
+          {spotlights.map((item, index) => (
+            <motion.a
+              href={item.url}
+              key={index}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2 bg-yellow-300 text-black font-medium rounded-full hover:bg-yellow-400 transition"
+              className="w-full md:w-[300px] bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all backdrop-blur-md bg-opacity-60"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              viewport={{ once: true }}
             >
-              Watch Full Video
-            </a>
-          )}
-        </motion.div>
-      </div>
-
-      {/* Navigation */}
-      <div className="mt-8 flex justify-center space-x-4">
-        {spotlights.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIndex(i)}
-            className={`w-4 h-4 rounded-full ${
-              index === i ? "bg-yellow-300" : "bg-gray-600"
-            }`}
-          />
-        ))}
+              <img
+                src={item.thumbnail}
+                alt={item.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4 space-y-2">
+                <h3 className="text-xl font-semibold font-outfit">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-600 font-light">{item.platform}</p>
+                {item.date && (
+                  <p className="text-xs text-gray-500">{item.date}</p>
+                )}
+                <p className="text-sm text-gray-700 font-outfit">
+                  {item.description}
+                </p>
+              </div>
+            </motion.a>
+          ))}
+        </div>
       </div>
     </section>
   );
