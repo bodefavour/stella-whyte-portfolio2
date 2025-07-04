@@ -9,6 +9,7 @@ import {
   FaTiktok,
   FaLinkedin
 } from "react-icons/fa";
+<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 
 export const ContactSection: React.FC = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -49,7 +50,7 @@ export const ContactSection: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-           {FaInstagram({ className: "hover:text-yellow-300 transition" })}
+            {FaInstagram({ className: "hover:text-yellow-300 transition" })}
           </a>
           <a
             href="https://www.facebook.com/superfmlagos"
@@ -66,7 +67,7 @@ export const ContactSection: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-           {FaTiktok({ className: "hover:text-yellow-300 transition" })}
+            {FaTiktok({ className: "hover:text-yellow-300 transition" })}
           </a>
           <a
             href="https://linkedin.com/in/ebosetale-obozele-536a5a20b"

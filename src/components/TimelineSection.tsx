@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import clsx from "clsx";
 import { useState } from "react";
 import stella1 from "../assets/stella1.png";
+<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 
 const timelineData = [
   {

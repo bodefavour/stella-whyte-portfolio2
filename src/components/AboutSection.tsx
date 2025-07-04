@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import stella1 from "../assets/stella1.png";
+<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 
 export const AboutSection: React.FC = () => (
   <section className="py-20 bg-white text-gray-900">

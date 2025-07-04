@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "./AchievementCarousel.css";
+<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 
 import stella1 from "../assets/stella1.png";
 import stella2 from "../assets/stella2.png";
@@ -53,9 +54,8 @@ export const AchievementsCarousel = () => {
             return (
               <motion.div
                 key={index}
-                className={`card relative backdrop-blur-md rounded-3xl shadow-xl border border-white/10 overflow-hidden transition-all duration-700 ${
-                  isActive ? "scale-105 z-20" : "scale-90 opacity-40 blur-sm z-10"
-                }`}
+                className={`card relative backdrop-blur-md rounded-3xl shadow-xl border border-white/10 overflow-hidden transition-all duration-700 ${isActive ? "scale-105 z-20" : "scale-90 opacity-40 blur-sm z-10"
+                  }`}
                 style={{
                   transform: `translateX(${offset * 100}%)`,
                   backgroundColor: "rgba(255, 255, 255, 0.05)",

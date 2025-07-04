@@ -1,5 +1,5 @@
 // components/NavHeroCombo.tsx
-
+<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ColorThief from "colorthief";

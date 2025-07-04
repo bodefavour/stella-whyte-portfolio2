@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactPlayer from "react-player";
+<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 
 type SpotlightItem = {
   id: string;
@@ -157,9 +158,8 @@ export const SpotlightSection = () => {
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`w-4 h-4 rounded-full ${
-              index === i ? "bg-yellow-300" : "bg-gray-600"
-            }`}
+            className={`w-4 h-4 rounded-full ${index === i ? "bg-yellow-300" : "bg-gray-600"
+              }`}
           />
         ))}
       </div>

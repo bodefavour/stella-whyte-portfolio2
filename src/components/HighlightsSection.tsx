@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import { IconType } from "react-icons";
 import React from "react";
+<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 
 type Highlight = {
   icon: any;
