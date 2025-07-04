@@ -9,7 +9,7 @@ import {
   FaTiktok,
   FaLinkedin
 } from "react-icons/fa";
-<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
+
 import { Helmet } from "react-helmet-async";
 export const ContactSection: React.FC = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
