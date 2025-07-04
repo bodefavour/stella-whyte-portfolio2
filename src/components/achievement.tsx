@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "./AchievementCarousel.css";
-<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
-
+import { Helmet } from "react-helmet-async";
 import stella1 from "../assets/stella1.png";
 import stella2 from "../assets/stella2.png";
 import stella3 from "../assets/stella3.png";
@@ -45,41 +44,51 @@ export const AchievementsCarousel = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-[#0f0f0f] flex items-center justify-center py-24 overflow-hidden">
-      <div className="carousel-wrapper relative w-full max-w-7xl px-6 md:px-12">
-        <div className="carousel flex items-center justify-center gap-6 md:gap-10">
-          {achievements.map((item, index) => {
-            const offset = index - activeIndex;
-            const isActive = index === activeIndex;
-            return (
-              <motion.div
-                key={index}
-                className={`card relative backdrop-blur-md rounded-3xl shadow-xl border border-white/10 overflow-hidden transition-all duration-700 ${isActive ? "scale-105 z-20" : "scale-90 opacity-40 blur-sm z-10"
-                  }`}
-                style={{
-                  transform: `translateX(${offset * 100}%)`,
-                  backgroundColor: "rgba(255, 255, 255, 0.05)",
-                }}
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-60 object-cover object-center"
-                />
-                <div className="p-6">
-                  <h3 className="text-2xl font-playfair font-semibold text-white">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-yellow-300 mb-2">{item.year}</p>
-                  <p className="text-sm text-gray-300 font-outfit">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+    <>
+      <Helmet>
+        <title>Ebosetale Okhueleigbe - Official Portfolio</title>
+        <meta
+          name="description"
+          content="The official portfolio for Ebosetale Okhueleigbe, an international model, philanthropist, entrepreneur, and media personality."
+        />
+        <link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
+      </Helmet>
+      <section className="relative min-h-screen bg-[#0f0f0f] flex items-center justify-center py-24 overflow-hidden">
+        <div className="carousel-wrapper relative w-full max-w-7xl px-6 md:px-12">
+          <div className="carousel flex items-center justify-center gap-6 md:gap-10">
+            {achievements.map((item, index) => {
+              const offset = index - activeIndex;
+              const isActive = index === activeIndex;
+              return (
+                <motion.div
+                  key={index}
+                  className={`card relative backdrop-blur-md rounded-3xl shadow-xl border border-white/10 overflow-hidden transition-all duration-700 ${isActive ? "scale-105 z-20" : "scale-90 opacity-40 blur-sm z-10"
+                    }`}
+                  style={{
+                    transform: `translateX(${offset * 100}%)`,
+                    backgroundColor: "rgba(255, 255, 255, 0.05)",
+                  }}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-60 object-cover object-center"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-2xl font-playfair font-semibold text-white">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-yellow-300 mb-2">{item.year}</p>
+                    <p className="text-sm text-gray-300 font-outfit">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };

@@ -1,9 +1,17 @@
 import { motion } from "framer-motion";
 import stella1 from "../assets/stella1.png";
-<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
+import { Helmet } from "react-helmet-async";
 
 export const AboutSection: React.FC = () => (
   <section className="py-20 bg-white text-gray-900">
+    <Helmet>
+      <title>About Ebosetale Okhueleigbe</title>
+      <meta
+        name="description"
+        content="Learn more about Ebosetale Okhueleigbe, her journey, and her impact."
+      />
+      <link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
+    </Helmet>
     <div className="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       {/* Left: Visual */}
       <motion.div
