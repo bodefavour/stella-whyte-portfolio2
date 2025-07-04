@@ -15,8 +15,8 @@ const App: React.FC = () => {
       <AboutSection />
       <HighlightsSection />
       <TimelineCarousel />
-<SpotlightSection />
-<ContactSection />
+      <SpotlightSection />
+      <ContactSection />
     </main>
   );
 };
