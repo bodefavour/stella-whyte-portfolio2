@@ -1,25 +1,42 @@
 import React from "react";
-import { NavHeroCombo } from "./components/HeroSection";
-// import AchievementSection from "./components/achievement";
-import { TimelineCarousel } from "./components/TimelineSection";
-import { AboutSection } from "./components/AboutSection";
-import { HighlightsSection } from "./components/HighlightsSection";
-//import { AchievementsCarousel } from "./components/achievement";
-import { SpotlightSection } from "./components/SpotlightSection";
-import { ContactSection } from "./components/ContactSection";
-import { HelmetProvider } from 'react-helmet-async';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider, Helmet } from "react-helmet-async";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Achievements from "./pages/Achievements";
+import Timeline from "./pages/Timeline";
+import Spotlight from "./pages/Spotlight";
+import Philanthropy from "./pages/Philanthropy";
+import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
+import Education from "./pages/Education";
 
 const App: React.FC = () => {
   return (
     <HelmetProvider>
-      <main>
-        <NavHeroCombo />
-        <AboutSection />
-        <HighlightsSection />
-        <TimelineCarousel />
-        <SpotlightSection />
-        <ContactSection />
-      </main>
+      <Router>
+        <Helmet>
+          <title>Ebosetale Okhueleigbe - Official Portfolio</title>
+          <meta
+            name="description"
+            content="The official portfolio for Ebosetale Okhueleigbe, an international model, philanthropist, entrepreneur, and media personality."
+          />
+          <link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
+        </Helmet>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/achievements" element={<Achievements />} />
+          <Route path="/timeline" element={<Timeline />} />
+          <Route path="/spotlight" element={<Spotlight />} />
+          <Route path="/philanthropy" element={<Philanthropy />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/education" element={<Education />} />
+        </Routes>
+      </Router>
     </HelmetProvider>
   );
 };
