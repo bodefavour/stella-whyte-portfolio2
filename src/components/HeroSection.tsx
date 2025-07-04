@@ -1,5 +1,4 @@
 // components/NavHeroCombo.tsx
-<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ColorThief from "colorthief";
@@ -7,6 +6,7 @@ import ColorThief from "colorthief";
 import stella1 from "../assets/stella1.png";
 import stella2 from "../assets/stella2.png";
 import stella3 from "../assets/stella3.png";
+<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 
 const navItems = [
   "About",
