@@ -5,8 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import clsx from "clsx";
 import { useState } from "react";
 import stella1 from "../assets/stella1.png";
-<link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
-
+import { Helmet } from "react-helmet-async";
 const timelineData = [
   {
     date: "Dec 2021",
@@ -63,78 +62,88 @@ export const TimelineCarousel = () => {
   };
 
   return (
-    <section className="bg-[#0e0e10] py-20 text-white relative">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-serif text-center text-yellow-400 mb-12">
-          Her Journey Through Time
-        </h2>
+    <>
+      <Helmet>
+        <title>Ebosetale Okhueleigbe - Official Portfolio</title>
+        <meta
+          name="description"
+          content="The official portfolio for Ebosetale Okhueleigbe, an international model, philanthropist, entrepreneur, and media personality."
+        />
+        <link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
+      </Helmet>
+      <section className="bg-[#0e0e10] py-20 text-white relative">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl font-serif text-center text-yellow-400 mb-12">
+            Her Journey Through Time
+          </h2>
 
-        <Slider {...settings}>
-          {timelineData.map((item, index) => {
-            const isActive = index === activeIndex;
-            return (
-              <motion.div
-                key={index}
-                className="px-4"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >
+          <Slider {...settings}>
+            {timelineData.map((item, index) => {
+              const isActive = index === activeIndex;
+              return (
                 <motion.div
-                  className={clsx(
-                    "rounded-3xl overflow-hidden relative border backdrop-blur-md transition-all duration-700",
-                    isActive
-                      ? "border-yellow-400 scale-100 shadow-[0_0_40px_10px_rgba(255,255,255,0.1)]"
-                      : "border-gray-700 scale-70 backdrop-blur-md bg-white/5"
-                  )}
+                  key={index}
+                  className="px-4"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
                 >
-                  <div className="overflow-hidden h-64">
-                    {item.type === "image" ? (
-                      <img
-                        src={item.src}
-                        alt={item.title}
-                        className={clsx(
-                          "w-full h-full object-cover transition-all duration-500",
-                          isActive ? "grayscale-0" : "grayscale blur-sm"
-                        )}
-                      />
-                    ) : (
-                      <video
-                        src={item.src}
-                        autoPlay
-                        muted
-                        loop
-                        className={clsx(
-                          "w-full h-full object-cover transition-all duration-500",
-                          isActive ? "grayscale-0" : "grayscale blur-sm"
-                        )}
-                      />
-                    )}
-                  </div>
-
-                  <div
+                  <motion.div
                     className={clsx(
-                      "p-6 transition-opacity duration-500",
-                      isActive ? "opacity-100" : "opacity-70"
+                      "rounded-3xl overflow-hidden relative border backdrop-blur-md transition-all duration-700",
+                      isActive
+                        ? "border-yellow-400 scale-100 shadow-[0_0_40px_10px_rgba(255,255,255,0.1)]"
+                        : "border-gray-700 scale-70 backdrop-blur-md bg-white/5"
                     )}
                   >
-                    <h3 className="text-2xl font-bold text-yellow-300 mb-2">
-                      {item.date}
-                    </h3>
-                    <p className="text-xl font-semibold mb-1">{item.title}</p>
-                    <p className="text-sm text-gray-300">{item.subtitle}</p>
-                  </div>
+                    <div className="overflow-hidden h-64">
+                      {item.type === "image" ? (
+                        <img
+                          src={item.src}
+                          alt={item.title}
+                          className={clsx(
+                            "w-full h-full object-cover transition-all duration-500",
+                            isActive ? "grayscale-0" : "grayscale blur-sm"
+                          )}
+                        />
+                      ) : (
+                        <video
+                          src={item.src}
+                          autoPlay
+                          muted
+                          loop
+                          className={clsx(
+                            "w-full h-full object-cover transition-all duration-500",
+                            isActive ? "grayscale-0" : "grayscale blur-sm"
+                          )}
+                        />
+                      )}
+                    </div>
 
-                  {/* Glow around center card */}
-                  {isActive && (
-                    <div className="absolute -inset-2 bg-yellow-400/20 blur-2xl rounded-3xl z-[-1]"></div>
-                  )}
+                    <div
+                      className={clsx(
+                        "p-6 transition-opacity duration-500",
+                        isActive ? "opacity-100" : "opacity-70"
+                      )}
+                    >
+                      <h3 className="text-2xl font-bold text-yellow-300 mb-2">
+                        {item.date}
+                      </h3>
+                      <p className="text-xl font-semibold mb-1">{item.title}</p>
+                      <p className="text-sm text-gray-300">{item.subtitle}</p>
+                    </div>
+
+                    {/* Glow around center card */}
+                    {isActive && (
+                      <div className="absolute -inset-2 bg-yellow-400/20 blur-2xl rounded-3xl z-[-1]"></div>
+                    )}
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            );
-          })}
-        </Slider>
-      </div>
-    </section>
+              );
+            })}
+          </Slider>
+        </div>
+      </section>
+    </>
   );
 };

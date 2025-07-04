@@ -7,17 +7,20 @@ import { HighlightsSection } from "./components/HighlightsSection";
 //import { AchievementsCarousel } from "./components/achievement";
 import { SpotlightSection } from "./components/SpotlightSection";
 import { ContactSection } from "./components/ContactSection";
+import { HelmetProvider } from 'react-helmet-async';
 
 const App: React.FC = () => {
   return (
-    <main>
-      <NavHeroCombo />
-      <AboutSection />
-      <HighlightsSection />
-      <TimelineCarousel />
-      <SpotlightSection />
-      <ContactSection />
-    </main>
+    <HelmetProvider>
+      <main>
+        <NavHeroCombo />
+        <AboutSection />
+        <HighlightsSection />
+        <TimelineCarousel />
+        <SpotlightSection />
+        <ContactSection />
+      </main>
+    </HelmetProvider>
   );
 };
 
