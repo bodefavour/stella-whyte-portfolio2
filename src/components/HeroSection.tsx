@@ -22,7 +22,7 @@ const navItems = [
 const images = [
   {
     src: stella1,
-    titles: ["Model", "Philanthropist", "Golf Champion", "Media Personality"],
+    titles: ["Philanthropist", "Golf Champion", "Media Personality"],
   },
   {
     src: stella2,
