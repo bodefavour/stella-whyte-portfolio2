@@ -7,7 +7,7 @@ import About from "./pages/About";
 import Achievements from "./pages/Achievements";
 import Timeline from "./pages/Timeline";
 import Spotlight from "./pages/Spotlight";
-import Philanthropy from "./pages/Philanthropy";
+import { Philanthropy } from "./pages/Philanthropy";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Education from "./pages/Education";
