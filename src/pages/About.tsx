@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { FaAward } from "react-icons/fa";
-
+import { FaAward } from "react-icons/fa6";
 const navItems = [
     "About",
     "Achievements",
