@@ -23,7 +23,7 @@ export const AboutSection: React.FC = () => (
       >
         <img
           src={stella1}
-          alt="Mrs. Okhueleigbe Ebosetale"
+          alt="Ebosetale Okhueleigbe"
           className="w-80 h-80 object-cover rounded-3xl shadow-2xl"
         />
       </motion.div>
@@ -37,7 +37,7 @@ export const AboutSection: React.FC = () => (
         viewport={{ once: true }}
       >
         <h2 className="text-3xl md:text-4xl font-playfair font-bold text-gray-900">
-          Meet Miss Okhueleigbe “Stella” Ebosetale, ACTI
+          Meet Ebosetale Okhueleigbe, ACTI
         </h2>
 
         <p className="text-lg font-outfit text-gray-700 leading-relaxed">
