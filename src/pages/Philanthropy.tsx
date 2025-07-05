@@ -27,7 +27,7 @@ const stats = [
   { value: "5", label: "States Covered (Voter Education)" },
 ];
 
-export const PhilanthropySection = () => (
+export const Philanthropy = () => (
   <section className="py-20 bg-gray-900 text-white px-6 md:px-20">
     <div className="max-w-6xl mx-auto space-y-12">
       <motion.h2
