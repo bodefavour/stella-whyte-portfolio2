@@ -154,7 +154,7 @@ export const NavHeroCombo = () => {
               transition={{ duration: 1 }}
               className="text-4xl md:text-6xl font-bold font-playfair"
             >
-              Miss Okhueleigbe Ebosetale
+              Ebosetale Okhueleigbe
             </motion.h1>
 
             <AnimatePresence mode="wait">
