@@ -33,7 +33,7 @@ export const AboutSection: React.FC = () => (
             className="w-80 h-80 object-cover rounded-3xl shadow-2xl border-4 border-yellow-400/30"
           />
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-sm bg-yellow-400 text-black px-3 py-1 rounded-full shadow-lg font-semibold">
-            Public Servant • Advocate • Strategist
+            Advocate • Strategist
           </div>
         </div>
       </motion.div>
