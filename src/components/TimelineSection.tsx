@@ -1,149 +1,75 @@
+// src/components/TimelineSection.tsx
 import Slider from "react-slick";
 import { motion } from "framer-motion";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import clsx from "clsx";
-import { useState } from "react";
 import stella1 from "../assets/stella1.png";
-import { Helmet } from "react-helmet-async";
+
 const timelineData = [
   {
     date: "Dec 2021",
     title: "International Justice of Peace",
     subtitle: "Global Peace Award",
-    type: "image",
     src: stella1,
   },
   {
     date: "Oct 2022",
     title: "MON National Honour",
     subtitle: "Order of Niger by the President",
-    type: "video",
     src: stella1,
   },
   {
     date: "Jul 2023",
     title: "Royal Honorary Fellow",
-    subtitle: "Presented by UK royal envoys",
-    type: "image",
+    subtitle: "Presented by UK Royal Envoys",
     src: stella1,
   },
   {
     date: "Dec 2024",
-    title: "International Justice of Peace",
-    subtitle: "Global Peace Award",
-    type: "image",
+    title: "Leadership Champion",
+    subtitle: "Global Summit Recognition",
     src: stella1,
   },
 ];
 
 export const TimelineCarousel = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   const settings = {
+    slidesToShow: 1,
     centerMode: true,
-    centerPadding: "100px",
-    slidesToShow: 3,
+    centerPadding: "60px",
     autoplay: true,
-    speed: 1000,
     autoplaySpeed: 6000,
-    cssEase: "ease-in-out",
+    speed: 800,
     infinite: true,
-    beforeChange: (_: number, next: number) => setActiveIndex(next),
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          centerPadding: "40px",
-        },
-      },
-    ],
+    arrows: false,
   };
 
   return (
-    <>
-      <Helmet>
-        <title>Ebosetale Okhueleigbe - Official Portfolio</title>
-        <meta
-          name="description"
-          content="The official portfolio for Ebosetale Okhueleigbe, an international model, philanthropist, entrepreneur, and media personality."
-        />
-        <link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
-      </Helmet>
-      <section className="bg-[#0e0e10] py-20 text-white relative">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-serif text-center text-yellow-400 mb-12">
-            Her Journey Through Time
-          </h2>
+    <section className="bg-[#0d0d0d] text-white py-24 px-4 md:px-20">
+      <h2 className="text-4xl md:text-5xl font-playfair text-yellow-400 text-center mb-16">
+        Her Journey Through Time
+      </h2>
 
-          <Slider {...settings}>
-            {timelineData.map((item, index) => {
-              const isActive = index === activeIndex;
-              return (
-                <motion.div
-                  key={index}
-                  className="px-4"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <motion.div
-                    className={clsx(
-                      "rounded-3xl overflow-hidden relative border backdrop-blur-md transition-all duration-700",
-                      isActive
-                        ? "border-yellow-400 scale-100 shadow-[0_0_40px_10px_rgba(255,255,255,0.1)]"
-                        : "border-gray-700 scale-70 backdrop-blur-md bg-white/5"
-                    )}
-                  >
-                    <div className="overflow-hidden h-64">
-                      {item.type === "image" ? (
-                        <img
-                          src={item.src}
-                          alt={item.title}
-                          className={clsx(
-                            "w-full h-full object-cover transition-all duration-500",
-                            isActive ? "grayscale-0" : "grayscale blur-sm"
-                          )}
-                        />
-                      ) : (
-                        <video
-                          src={item.src}
-                          autoPlay
-                          muted
-                          loop
-                          className={clsx(
-                            "w-full h-full object-cover transition-all duration-500",
-                            isActive ? "grayscale-0" : "grayscale blur-sm"
-                          )}
-                        />
-                      )}
-                    </div>
-
-                    <div
-                      className={clsx(
-                        "p-6 transition-opacity duration-500",
-                        isActive ? "opacity-100" : "opacity-70"
-                      )}
-                    >
-                      <h3 className="text-2xl font-bold text-yellow-300 mb-2">
-                        {item.date}
-                      </h3>
-                      <p className="text-xl font-semibold mb-1">{item.title}</p>
-                      <p className="text-sm text-gray-300">{item.subtitle}</p>
-                    </div>
-
-                    {/* Glow around center card */}
-                    {isActive && (
-                      <div className="absolute -inset-2 bg-yellow-400/20 blur-2xl rounded-3xl z-[-1]"></div>
-                    )}
-                  </motion.div>
-                </motion.div>
-              );
-            })}
-          </Slider>
-        </div>
-      </section>
-    </>
+      <Slider {...settings}>
+        {timelineData.map((item, index) => (
+          <motion.div
+            key={index}
+            className="p-6 rounded-2xl border border-yellow-900 bg-[#1a1a1a] mx-4 backdrop-blur-lg shadow-md hover:shadow-yellow-400/20 transition"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <img
+              src={item.src}
+              alt={item.title}
+              className="w-full h-60 object-cover rounded-xl mb-6"
+            />
+            <h3 className="text-xl font-bold text-yellow-300">{item.date}</h3>
+            <p className="text-lg font-semibold text-white">{item.title}</p>
+            <p className="text-sm text-gray-300">{item.subtitle}</p>
+          </motion.div>
+        ))}
+      </Slider>
+    </section>
   );
 };
