@@ -48,7 +48,7 @@ const highlights: Highlight[] = [
     description: "Launched the Vote Right Campaign to mobilize Nigerian youth for democratic participation.",
   },
   {
-    icon: FaAward,
+    icon: FaCrown,
     title: "International Award Winner",
     description: "Recognized with PR Times Honour, Humanitarian of the Year, and other prestigious awards.",
   },
