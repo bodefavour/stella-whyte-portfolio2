@@ -20,7 +20,7 @@ const highlights: Highlight[] = [
   {
     icon: FaUserShield,
     title: "President, Women Mentorship Forum",
-    description: "Launched the Women Mentorship Forum (WMF), a visionary platform founded to empower, guide, and uplift women through mentorship, collaboration, and purposeful growth."",
+    description: "Launched the Women Mentorship Forum (WMF), a visionary platform founded to empower, guide, and uplift women through mentorship, collaboration, and purposeful growth.",
   },
 {
     icon: FaCrown,
