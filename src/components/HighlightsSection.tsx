@@ -18,29 +18,39 @@ type Highlight = {
 
 const highlights: Highlight[] = [
   {
-    icon: FaCrown,
-    title: "International Title",
-    description: "Crowned Miss Polo International 2019",
+    icon: FaUserShield,
+    title: "President, Women Mentorship Forum",
+    description: "Launched the Women Mentorship Forum (WMF), a visionary platform founded to empower, guide, and uplift women through mentorship, collaboration, and purposeful growth."",
   },
-  {
-    icon: FaDove,
-    title: "Peace Advocate",
-    description: "Justice of Peace, Africa Union ECOSOCC",
+{
+    icon: FaCrown,
+    title: "Miss Polo International 2019",
+    description: "Represented Nigeria on a global stage, promoting culture and diplomacy through beauty and intelligence.",
   },
   {
     icon: FaBriefcase,
-    title: "Entrepreneur",
-    description: "CEO, Beauty Empire",
-  },
-  {
-    icon: FaMicrophone,
-    title: "Media Personality",
-    description: "TV Host & Public Speaker",
+    title: "FIRS Tax Auditor",
+    description: "Works at the Federal Inland Revenue Service (FIRS), recognized for excellence in tax and audit strategy.",
   },
   {
     icon: FaHeart,
-    title: "Humanitarian Impact",
-    description: "Over 5,000 lives touched across Nigeria",
+    title: "Founder, Whyte Teen Hub",
+    description: "Empowered hundreds of teenage girls through leadership, skills, and mentorship initiatives since 2017.",
+  },
+  {
+    icon: FaMicrophone,
+    title: "Public Speaker & Advocate",
+    description: "Engaged audiences across Africa on gender equity, youth leadership, and national development.",
+  },
+  {
+    icon: FaUserShield,
+    title: "President, Voice Out Vanguard",
+    description: "Launched the Vote Right Campaign to mobilize Nigerian youth for democratic participation.",
+  },
+  {
+    icon: FaAward,
+    title: "International Award Winner",
+    description: "Recognized with PR Times Honour, Humanitarian of the Year, and other prestigious awards.",
   },
 ];
 
