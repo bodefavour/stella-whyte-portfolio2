@@ -18,7 +18,7 @@ type Highlight = {
 
 const highlights: Highlight[] = [
   {
-    icon: FaLightbulb,
+    icon: FaCrown,
     title: "President, Women Mentorship Forum",
     description: "Launched the Women Mentorship Forum (WMF), a visionary platform founded to empower, guide, and uplift women through mentorship, collaboration, and purposeful growth.",
   },
@@ -43,7 +43,7 @@ const highlights: Highlight[] = [
     description: "Engaged audiences across Africa on gender equity, youth leadership, and national development.",
   },
   {
-    icon: FaUserTie,
+    icon: FaCrown,
     title: "President, Voice Out Vanguard",
     description: "Launched the Vote Right Campaign to mobilize Nigerian youth for democratic participation.",
   },
