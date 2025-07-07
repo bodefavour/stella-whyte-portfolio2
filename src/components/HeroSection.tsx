@@ -22,11 +22,11 @@ const navItems = [
 const images = [
   {
     src: stella1,
-    titles: ["Philanthropist", "Golf Champion", "Media Personality"],
+    titles: ["Gender Analyst", "Golf Champion", "Media Personality"],
   },
   {
     src: stella2,
-    titles: ["Founder", "Beauty Queen", "Influencer", "Public Speaker"],
+    titles: ["Founder", "Beauty Queen", "Philanthropist","Tax Auditor", "Public Speaker"],
   },
   {
     src: stella3,
