@@ -7,7 +7,8 @@ import "react-image-lightbox/style.css";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-// Sample placeholder events with photo arrays const events = [ 
+// Sample placeholder events with photo arrays 
+const events = [ 
 { 
 title: "UN Women Leadership Forum", 
 images: [ 
