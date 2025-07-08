@@ -9,23 +9,31 @@ import "slick-carousel/slick/slick-theme.css";
 
 // Sample placeholder events with photo arrays 
 const events = [ 
+  { 
+    title: "The ICE Connect In Lagos State University", 
+    images: [ 
+    "/assets/IMG-20250706-WA0017.jpg", 
+    "/assets/IMG-20250706-WA0019.jpg", 
+    "/assets/IMG-20250703-WA0011.jpg", 
+    "/events/ayd/5.jpg", 
+    ], 
+    }, 
 { 
-title: "UN Women Leadership Forum", 
+title: "Africa Trade Consortium’s Tea Break Edition 2025", 
 images: [ 
-"/events/un/1.jpg", 
+"/assets/Screenshot_20250525-213124.jpg", 
 "/events/un/2.jpg", 
-"/events/un/3.jpg", 
+"/assets/Screenshot_20250525-213124.jpg", 
 "/events/un/4.jpg", 
 "/events/un/5.jpg", 
 ], 
 }, 
 { 
-title: "Africa Youth Dialogue Summit", 
+title: "The ICE Connect In Lagos State University", 
 images: [ 
-"/events/ayd/1.jpg", 
-"/events/ayd/2.jpg", 
-"/events/ayd/3.jpg", 
-"/events/ayd/4.jpg", 
+"/assets/IMG-20250706-WA0017.jpg", 
+"/assets/IMG-20250706-WA0019.jpg", 
+"/assets/IMG-20250703-WA0011.jpg", 
 "/events/ayd/5.jpg", 
 ], 
 }, 
