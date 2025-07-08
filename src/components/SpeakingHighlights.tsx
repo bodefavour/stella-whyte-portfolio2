@@ -1,14 +1,55 @@
 // src/components/SpeakingEventsCarousel.tsx
 
-import React, { useState } from "react"; import Slider from "react-slick"; import Lightbox from "react-image-lightbox"; import "react-image-lightbox/style.css"; import "slick-carousel/slick/slick.css"; import "slick-carousel/slick/slick-theme.css";
+import React, { useState } from "react"; 
+import Slider from "react-slick"; 
+import Lightbox from "react-image-lightbox"; 
+import "react-image-lightbox/style.css"; 
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
-// Sample placeholder events with photo arrays const events = [ { title: "UN Women Leadership Forum", images: [ "/events/un/1.jpg", "/events/un/2.jpg", "/events/un/3.jpg", "/events/un/4.jpg", "/events/un/5.jpg", ], }, { title: "Africa Youth Dialogue Summit", images: [ "/events/ayd/1.jpg", "/events/ayd/2.jpg", "/events/ayd/3.jpg", "/events/ayd/4.jpg", "/events/ayd/5.jpg", ], }, ];
+// Sample placeholder events with photo arrays const events = [ 
+{ 
+title: "UN Women Leadership Forum", 
+images: [ 
+"/events/un/1.jpg", 
+"/events/un/2.jpg", 
+"/events/un/3.jpg", 
+"/events/un/4.jpg", 
+"/events/un/5.jpg", 
+], 
+}, 
+{ 
+title: "Africa Youth Dialogue Summit", 
+images: [ 
+"/events/ayd/1.jpg", 
+"/events/ayd/2.jpg", 
+"/events/ayd/3.jpg", 
+"/events/ayd/4.jpg", 
+"/events/ayd/5.jpg", 
+], 
+}, 
+];
 
-export const SpeakingEventsCarousel = () => { const [lightboxIndex, setLightboxIndex] = useState(0); const [selectedEvent, setSelectedEvent] = useState<number | null>(null);
+export const SpeakingEventsCarousel = () => { 
+const [lightboxIndex, setLightboxIndex] = useState(0); 
+const [selectedEvent, setSelectedEvent] = useState<number | null>(null);
 
-const settings = { dots: true, infinite: true, speed: 800, slidesToShow: 1, slidesToScroll: 1, autoplay: true, autoplaySpeed: 6000, arrows: false, };
+const settings = { 
+dots: true, 
+infinite: true, 
+speed: 800, 
+slidesToShow: 1, 
+slidesToScroll: 1, 
+autoplay: true, 
+autoplaySpeed: 6000, 
+arrows: false, 
+};
 
-return ( <section className="bg-black py-20 px-6 md:px-20 text-white"> <h2 className="text-4xl font-playfair text-yellow-300 text-center mb-16"> Speaking Engagements </h2>
+return ( 
+<section className="bg-black py-20 px-6 md:px-20 text-white"> 
+<h2 className="text-4xl font-playfair text-yellow-300 text-center mb-16"> 
+Speaking Engagements 
+</h2>
 
 <Slider {...settings}>
     {events.map((event, eventIdx) => (
@@ -51,5 +92,6 @@ return ( <section className="bg-black py-20 px-6 md:px-20 text-white"> <h2 class
   )}
 </section>
 
-); };
+); 
+};
 
