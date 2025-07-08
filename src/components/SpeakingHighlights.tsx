@@ -1,106 +1,105 @@
-// src/components/SpeakingEventsCarousel.tsx
-
-import React, { useState } from "react"; 
-import Slider from "react-slick"; 
-import Lightbox from "react-image-lightbox"; 
-import "react-image-lightbox/style.css"; 
-import "slick-carousel/slick/slick.css"; 
+// src/components/SpeakingEvents.tsx
+import { motion } from "framer-motion";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Sample placeholder events with photo arrays 
-const events = [ 
-  { 
-    title: "The ICE Connect In Lagos State University", 
-    images: [ 
-    "/assets/IMG-20250706-WA0017.jpg", 
-    "/assets/IMG-20250706-WA0019.jpg", 
-    "/assets/IMG-20250703-WA0011.jpg", 
-    "/events/ayd/5.jpg", 
-    ], 
-    }, 
-{ 
-title: "Africa Trade Consortium’s Tea Break Edition 2025", 
-images: [ 
-"/assets/Screenshot_20250525-213124.jpg", 
-"/events/un/2.jpg", 
-"/assets/Screenshot_20250525-213124.jpg", 
-"/events/un/4.jpg", 
-"/events/un/5.jpg", 
-], 
-}, 
-{ 
-title: "The ICE Connect In Lagos State University", 
-images: [ 
-"/assets/IMG-20250706-WA0017.jpg", 
-"/assets/IMG-20250706-WA0019.jpg", 
-"/assets/IMG-20250703-WA0011.jpg", 
-"/events/ayd/5.jpg", 
-], 
-}, 
+type EventType = {
+  title: string;
+  description: string;
+  coverImage: string;
+  images: string[];
+};
+
+const speakingEvents: EventType[] = [
+  {
+    title: "UN Women Leadership Forum",
+    description:
+      "Ebosetale delivered a powerful keynote to over 500 global leaders on gender equality and sustainable development, held in Abuja, Nigeria.",
+    coverImage: "/events/un/cover.jpg",
+    images: [
+      "/events/un/1.jpg",
+      "/events/un/2.jpg",
+      "/events/un/3.jpg",
+      "/events/un/4.jpg",
+      "/events/un/5.jpg",
+    ],
+  },
+  {
+    title: "Youth for Change Summit",
+    description:
+      "An inspiring address on digital activism and civic leadership to African youth leaders, fostering inclusive policy-making across nations.",
+    coverImage: "/events/youth/cover.jpg",
+    images: [
+      "/events/youth/1.jpg",
+      "/events/youth/2.jpg",
+      "/events/youth/3.jpg",
+    ],
+  },
+  // Add more events here as needed
 ];
 
-export const SpeakingEventsCarousel = () => { 
-const [lightboxIndex, setLightboxIndex] = useState(0); 
-const [selectedEvent, setSelectedEvent] = useState<number | null>(null);
-
-const settings = { 
-dots: true, 
-infinite: true, 
-speed: 800, 
-slidesToShow: 1, 
-slidesToScroll: 1, 
-autoplay: true, 
-autoplaySpeed: 6000, 
-arrows: false, 
+const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 600,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  autoplay: true,
+  autoplaySpeed: 5000,
+  pauseOnHover: true,
 };
 
-return ( 
-<section className="bg-black py-20 px-6 md:px-20 text-white"> 
-<h2 className="text-4xl font-playfair text-yellow-300 text-center mb-16"> 
-Speaking Engagements 
-</h2>
+export const SpeakingEvents = () => {
+  return (
+    <section className="bg-black text-white py-20 px-6 md:px-20">
+      <h2 className="text-4xl md:text-5xl font-playfair text-yellow-300 mb-16 text-center">
+        Featured Speaking Engagements
+      </h2>
 
-<Slider {...settings}>
-    {events.map((event, eventIdx) => (
-      <div key={eventIdx} className="flex flex-col items-center">
-        <h3 className="text-2xl mb-6 font-semibold">{event.title}</h3>
-        <div className="relative flex justify-center space-x-[-3rem] md:space-x-[-5rem] overflow-x-visible">
-          {event.images.map((img, imgIdx) => (
-            <img
-              key={imgIdx}
-              src={img}
-              alt={`event-${eventIdx}-img-${imgIdx}`}
-              onClick={() => {
-                setSelectedEvent(eventIdx);
-                setLightboxIndex(imgIdx);
-              }}
-              className="cursor-pointer w-40 md:w-52 h-60 object-cover rounded-xl border-2 border-yellow-300 shadow-xl transform hover:scale-105 transition duration-300"
-              style={{ zIndex: imgIdx, transform: `rotate(${(imgIdx - 2) * 6}deg)` }}
-            />
-          ))}
-        </div>
+      <div className="space-y-20">
+        {speakingEvents.map((event, index) => (
+          <motion.div
+            key={index}
+            className="bg-[#111] rounded-3xl p-6 md:p-12 shadow-xl space-y-10"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {/* Main Info */}
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <img
+                src={event.coverImage}
+                alt={event.title}
+                className="w-full h-64 md:h-full object-cover rounded-2xl shadow-lg"
+              />
+              <div>
+                <h3 className="text-2xl md:text-3xl font-semibold text-yellow-400 mb-4">
+                  {event.title}
+                </h3>
+                <p className="text-gray-300 font-outfit text-lg leading-relaxed">
+                  {event.description}
+                </p>
+              </div>
+            </div>
+
+            {/* Carousel */}
+            <Slider {...sliderSettings}>
+              {event.images.map((img, i) => (
+                <div key={i}>
+                  <img
+                    src={img}
+                    alt={`Slide ${i + 1}`}
+                    className="rounded-xl w-full h-72 object-cover"
+                  />
+                </div>
+              ))}
+            </Slider>
+          </motion.div>
+        ))}
       </div>
-    ))}
-  </Slider>
-
-  {selectedEvent !== null && (
-    <Lightbox
-      mainSrc={events[selectedEvent].images[lightboxIndex]}
-      nextSrc={events[selectedEvent].images[(lightboxIndex + 1) % events[selectedEvent].images.length]}
-      prevSrc={events[selectedEvent].images[(lightboxIndex + events[selectedEvent].images.length - 1) % events[selectedEvent].images.length]}
-      onCloseRequest={() => setSelectedEvent(null)}
-      onMovePrevRequest={() =>
-        setLightboxIndex(
-          (lightboxIndex + events[selectedEvent].images.length - 1) % events[selectedEvent].images.length
-        )
-      }
-      onMoveNextRequest={() =>
-        setLightboxIndex((lightboxIndex + 1) % events[selectedEvent].images.length)
-      }
-    />
-  )}
-</section>
-
-); 
+    </section>
+  );
 };
-
