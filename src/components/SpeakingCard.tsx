@@ -6,7 +6,7 @@ import Slider from "react-slick";
 type EventType = {
   title: string;
   description: string;
-  coverImage: string;
+  coverImage?: string;
   coverVideo?: string;
   images: string[];
 };
