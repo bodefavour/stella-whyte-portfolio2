@@ -36,40 +36,56 @@ const speakingEvents: EventType[] = [
       "/events/youth/3.jpg",
     ],
   },
-  // Add more events here as needed
+  // Add more events...
 ];
 
-const sliderSettings = {
+const eventSliderSettings = {
   dots: true,
   infinite: true,
-  speed: 600,
+  speed: 700,
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
   autoplay: true,
-  autoplaySpeed: 5000,
+  autoplaySpeed: 8000,
   pauseOnHover: true,
+  swipe: true,
+};
+
+const photoSliderSettings = {
+  dots: false,
+  arrows: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: { slidesToShow: 1 },
+    },
+  ],
 };
 
 export const SpeakingEvents = () => {
   return (
-    <section className="bg-black text-white py-20 px-6 md:px-20">
+    <section className="bg-[#0e0e10] text-white py-20 px-6 md:px-20">
       <h2 className="text-4xl md:text-5xl font-playfair text-yellow-300 mb-16 text-center">
         Featured Speaking Engagements
       </h2>
 
-      <div className="space-y-20">
+      <Slider {...eventSliderSettings}>
         {speakingEvents.map((event, index) => (
           <motion.div
             key={index}
-            className="bg-[#111] rounded-3xl p-6 md:p-12 shadow-xl space-y-10"
+            className="bg-[#111] rounded-3xl p-6 md:p-12 shadow-xl"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* Main Info */}
-            <div className="grid md:grid-cols-2 gap-10 items-center">
+            {/* Header Info */}
+            <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
               <img
                 src={event.coverImage}
                 alt={event.title}
@@ -85,21 +101,21 @@ export const SpeakingEvents = () => {
               </div>
             </div>
 
-            {/* Carousel */}
-            <Slider {...sliderSettings}>
+            {/* Photo Carousel */}
+            <Slider {...photoSliderSettings}>
               {event.images.map((img, i) => (
-                <div key={i}>
+                <div key={i} className="px-2">
                   <img
                     src={img}
-                    alt={`Slide ${i + 1}`}
-                    className="rounded-xl w-full h-72 object-cover"
+                    alt={`Event ${index} Photo ${i + 1}`}
+                    className="rounded-xl h-60 w-full object-cover"
                   />
                 </div>
               ))}
             </Slider>
           </motion.div>
         ))}
-      </div>
+      </Slider>
     </section>
   );
 };
