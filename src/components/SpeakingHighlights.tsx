@@ -25,7 +25,7 @@ const speakingEvents: EventType[] = [
     ],
   },
   {
-    title: "Youth for Change Summit",
+    title: "The ICE Connect 2025: Lagos State University",
     description:
       "An inspiring address on digital activism and civic leadership to African youth leaders, fostering inclusive policy-making across nations.",
     coverImage: "/events/youth/cover.jpg",
