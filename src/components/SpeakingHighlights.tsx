@@ -7,7 +7,7 @@ const speakingEvents = [
     description:
       "On July 2nd, 2025, Ebosetale was a featured speaker at The ICE Connect 2025, a dynamic student-focused networking experience hosted at Lagos State University (LASU). ICE Connect brought together forward-thinking students, innovators, and young creatives under one roof to connect, share ideas, and build meaningful collaborations.",
     // coverImage: "/assets/IMG-20250706-WA0017.jpg",
-    coverVideo: "/assets/https://res.cloudinary.com/dydwcaxmx/video/upload/v1752093786/VID-20250706-WA0035_xjobbn.mp4",
+    coverVideo: "https://res.cloudinary.com/dydwcaxmx/video/upload/v1752093786/VID-20250706-WA0035_xjobbn.mp4",
     images: [
       "/assets/IMG-20250706-WA0017.jpg",
       "/assets/IMG-20250706-WA0019.jpg",
