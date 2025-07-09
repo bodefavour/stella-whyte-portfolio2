@@ -8,6 +8,7 @@ type EventType = {
   title: string;
   description: string;
   coverImage: string;
+  coverVideo?: string;
   images: string[];
 };
 
