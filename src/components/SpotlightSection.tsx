@@ -17,7 +17,7 @@ const spotlights: SpotlightItem[] = [
     src: "https://www.youtube.com/watch?v=5HDbfAlNxbQ",
     title: "Exclusive: The Story You Haven't Heard",
     description:
-      "Ebosetale opens up in an intimate chat with *Your View TV* about her personal journey — June 5, 2025.",
+      "Ebosetale opens up in an intimate chat with Your View TV about her personal journey — June 5, 2025.",
   },
   {
     id: "thisday",
@@ -25,7 +25,7 @@ const spotlights: SpotlightItem[] = [
     src: "https://www.thisdaylive.com/2025/05/25/ebosetale-okhueleigbe-lauds-fgs-business-friendly-initiatives/",
     title: "Lauds FG’s Business‑Friendly Initiatives",
     description:
-      "In a high-profile feature with *ThisDay*, Ebosetale commends Nigeria’s economic strides — May 25, 2025.",
+      "In a high-profile feature with ThisDay, Ebosetale commends Nigeria’s economic strides — May 25, 2025.",
   },
   {
     id: "superfm",
@@ -33,7 +33,7 @@ const spotlights: SpotlightItem[] = [
     src: "https://www.facebook.com/superfmlagos/videos/1729418551031043/",
     title: "Super FM: A Powerful Session",
     description:
-      "She shook the table on *Women of Dignity* at Super FM Lagos — May 2025.",
+      "She shook the table on Women of Dignity at Super FM Lagos — May 2025.",
   },
   {
     id: "instagramreel",
@@ -49,7 +49,7 @@ const spotlights: SpotlightItem[] = [
     src: "https://www.youtube.com/watch?v=bwYtcfZDjRo",
     title: "In Conversation with Women of Grace",
     description:
-      "*Women of Grace* hosts Stella for a spirited conversation — 2025.",
+      "Women of Grace hosts Stella for a spirited conversation — 2025.",
   },
 ];
 
