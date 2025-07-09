@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 type EventType = {
   title: string;
   description: string;
-  coverImage: string;
+  coverImage?: string;
   coverVideo?: string;
   images: string[];
 };
@@ -17,8 +17,8 @@ const speakingEvents: EventType[] = [
     title: "The ICE Connect 2025: Lagos State University",
     description:
       "On July 2nd, 2025, Ebosetale was a featured speaker at The ICE Connect 2025, a dynamic student-focused networking experience hosted at Lagos State University (LASU). ICE Connect brought together forward-thinking students, innovators, and young creatives under one roof to connect, share ideas, and build meaningful collaborations.",
-    coverImage: "/assets/IMG-20250706-WA0017.jpg",
-    coverVideo: "/assets/",
+    // coverImage: "/assets/IMG-20250706-WA0017.jpg",
+    coverVideo: "/assets/https://res.cloudinary.com/dydwcaxmx/video/upload/v1752093786/VID-20250706-WA0035_xjobbn.mp4",
     images: [
       "/assets/IMG-20250706-WA0017.jpg",
       "/assets/IMG-20250706-WA0019.jpg",
@@ -29,7 +29,7 @@ const speakingEvents: EventType[] = [
     title: "Africa Trade Consortium’s Tea Break Edition 2025",
     description:
       "Speaking at the event held at the Grand Pela Hotel in Abuja, Okhueleigbe commended the government’s efforts to support businesses through tax exemptions, Pioneer Status Incentives, Export Processing Grants, and other tax reliefs. She noted that these incentives will not only strengthen businesses but also create jobs, reduce poverty, and improve the standard of living.",
-    coverVideo: "/assets/video-sample.mp4", // optional
+    // coverVideo: "/assets/video-sample.mp4", // optional
     coverImage: "/assets/Screenshot_20250525-213124.jpg",
     images: [
       "/assets/IMG-20250709-WA0006.jpg",
@@ -77,7 +77,7 @@ export const SpeakingEvents = () => {
 
       <Slider {...eventSliderSettings}>
         {speakingEvents.map((event, index) => {
-          const [cover, setCover] = useState<string>(event.coverImage);
+          const [cover, setCover] = useState<string>(event.coverImage || "");
 
           return (
             <motion.div
