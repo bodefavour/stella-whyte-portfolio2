@@ -1,4 +1,3 @@
-// src/components/SpeakingEvents.tsx
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -13,29 +12,29 @@ type EventType = {
 
 const speakingEvents: EventType[] = [
   {
-    title: "Africa Trade Consortium’s Tea Break Edition 2025",
+    title: "UN Women Leadership Forum",
     description:
-      "Speaking at the event held at the Grand Pela Hotel in Abuja, Okhueleigbe commended the government’s efforts to support businesses through tax exemptions, Pioneer Status Incentives, Export Processing Grants, and other tax reliefs. She noted that these incentives will not only strengthen businesses but also create jobs, reduce poverty, and improve the standard of living.",
-    coverImage: "/assets/Screenshot_20250525-213124.jpg",
+      "Ebosetale delivered a powerful keynote to over 500 global leaders on gender equality and sustainable development.",
+    coverImage: "/events/un/cover.jpg",
     images: [
-      "/assets/IMG-20250709-WA0006.jpg",
-      "/assets/IMG-20250709-WA0007.jpg",
-      "/assets/IMG-20250709-WA0008.jpg",
-      "/assets/IMG-20250709-WA0009.jpg",
+      "/events/un/1.jpg",
+      "/events/un/2.jpg",
+      "/events/un/3.jpg",
+      "/events/un/4.jpg",
+      "/events/un/5.jpg",
     ],
   },
   {
-    title: "The ICE Connect 2025: Lagos State University",
+    title: "Youth for Change Summit",
     description:
-      "On July 2nd, 2025, Miss Ebosetale was a featured speaker at The ICE Connect 2025, a dynamic student-focused networking experience hosted at Lagos State University (LASU).ICE Connect brought together forward-thinking students, innovators, and young creatives under one roof to connect, share ideas, and build meaningful collaborations.",
-    coverImage: "/assets/IMG-20250706-WA0017.jpg",
+      "An inspiring address on digital activism and civic leadership to African youth leaders across the continent.",
+    coverImage: "/events/youth/cover.jpg",
     images: [
-      "/assets/IMG-20250706-WA0017.jpg",
-      "/assets/IMG-20250706-WA0019.jpg",
-      "/assets/IMG-20250703-WA0011.jpg",
+      "/events/youth/1.jpg",
+      "/events/youth/2.jpg",
+      "/events/youth/3.jpg",
     ],
   },
-  // Add more events...
 ];
 
 const eventSliderSettings = {
@@ -56,7 +55,7 @@ const photoSliderSettings = {
   arrows: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 3,
+  slidesToShow: 2,
   slidesToScroll: 1,
   responsive: [
     {
@@ -68,46 +67,46 @@ const photoSliderSettings = {
 
 export const SpeakingEvents = () => {
   return (
-    <section className="bg-[#0e0e10] text-white py-20 px-6 md:px-20">
-      <h2 className="text-4xl md:text-5xl font-playfair text-yellow-300 mb-16 text-center">
-        Featured Speaking Engagements
+    <section className="bg-[#0e0e10] text-white py-20 px-6 md:px-10">
+      <h2 className="text-3xl md:text-4xl font-playfair text-yellow-300 mb-14 text-center">
+        Speaking Engagements
       </h2>
 
       <Slider {...eventSliderSettings}>
         {speakingEvents.map((event, index) => (
           <motion.div
             key={index}
-            className="bg-[#111] rounded-3xl p-6 md:p-12 shadow-xl"
+            className="bg-[#111] rounded-2xl p-6 md:p-8 shadow-xl max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            {/* Header Info */}
-            <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
+            {/* Header */}
+            <div className="grid md:grid-cols-2 gap-6 items-start mb-8">
               <img
                 src={event.coverImage}
                 alt={event.title}
-                className="w-full h-64 md:h-full object-cover rounded-2xl shadow-lg"
+                className="w-full h-52 md:h-64 object-cover rounded-xl shadow"
               />
-              <div>
-                <h3 className="text-2xl md:text-3xl font-semibold text-yellow-400 mb-4">
+              <div className="space-y-3">
+                <h3 className="text-2xl md:text-2xl font-semibold text-yellow-400">
                   {event.title}
                 </h3>
-                <p className="text-gray-300 font-outfit text-lg leading-relaxed">
+                <p className="text-base md:text-lg font-outfit text-gray-300">
                   {event.description}
                 </p>
               </div>
             </div>
 
-            {/* Photo Carousel */}
+            {/* Carousel */}
             <Slider {...photoSliderSettings}>
               {event.images.map((img, i) => (
                 <div key={i} className="px-2">
                   <img
                     src={img}
-                    alt={`Event ${index} Photo ${i + 1}`}
-                    className="rounded-xl h-60 w-full object-cover"
+                    alt={`Event ${index} Image ${i + 1}`}
+                    className="rounded-xl h-56 object-cover w-full"
                   />
                 </div>
               ))}
