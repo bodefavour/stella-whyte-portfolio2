@@ -28,11 +28,11 @@ const speakingEvents: EventType[] = [
     title: "The ICE Connect 2025: Lagos State University",
     description:
       "An inspiring address on digital activism and civic leadership to African youth leaders, fostering inclusive policy-making across nations.",
-    coverImage: "/events/youth/cover.jpg",
+    coverImage: "/assets/IMG-20250706-WA0017.jpg",
     images: [
-      "/events/youth/1.jpg",
-      "/events/youth/2.jpg",
-      "/events/youth/3.jpg",
+      "/assets/IMG-20250706-WA0017.jpg",
+      "/assets/IMG-20250706-WA0019.jpg",
+      "/assets/IMG-20250703-WA0011.jpg",
     ],
   },
   // Add more events...
