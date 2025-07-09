@@ -21,8 +21,7 @@ const speakingEvents = [
     // coverVideo: "https://res.cloudinary.com/dydwcaxmx/video/upload/v1752093628/VID-20250706-WA0032_ftnclr.mp4", // optional
     coverImage: "/assets/Screenshot_20250525-213124.jpg",
     images: [
-      "/assets/IMG-20250709-WA0006.jpg",
-      "Screenshot_20250525-213124.jpg",
+      "/assets/IMG-20250709-WA0006.jpg", "https://res.cloudinary.com/dydwcaxmx/video/upload/v1752093628/VID-20250706-WA0032_ftnclr.mp4",
       "/assets/IMG-20250709-WA0008.jpg",
       "/assets/IMG-20250709-WA0009.jpg",
     ],
