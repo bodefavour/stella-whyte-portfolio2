@@ -13,6 +13,17 @@ type EventType = {
 
 const speakingEvents: EventType[] = [
   {
+    title: "The ICE Connect 2025: Lagos State University",
+    description:
+      "On July 2nd, 2025, Miss Ebosetale was a featured speaker at The ICE Connect 2025, a dynamic student-focused networking experience hosted at Lagos State University (LASU).ICE Connect brought together forward-thinking students, innovators, and young creatives under one roof to connect, share ideas, and build meaningful collaborations.",
+    coverImage: "/assets/IMG-20250706-WA0017.jpg",
+    images: [
+      "/assets/IMG-20250706-WA0017.jpg",
+      "/assets/IMG-20250706-WA0019.jpg",
+      "/assets/IMG-20250703-WA0011.jpg",
+    ],
+  },
+{
     title: "Africa Trade Consortium’s Tea Break Edition 2025",
     description:
       "Speaking at the event held at the Grand Pela Hotel in Abuja, Okhueleigbe commended the government’s efforts to support businesses through tax exemptions, Pioneer Status Incentives, Export Processing Grants, and other tax reliefs. She noted that these incentives will not only strengthen businesses but also create jobs, reduce poverty, and improve the standard of living.",
@@ -22,17 +33,6 @@ const speakingEvents: EventType[] = [
       "/assets/IMG-20250709-WA0007.jpg",
       "/assets/IMG-20250709-WA0008.jpg",
       "/assets/IMG-20250709-WA0009.jpg",
-    ],
-  },
-  {
-    title: "The ICE Connect 2025: Lagos State University",
-    description:
-      "On July 2nd, 2025, Miss Ebosetale was a featured speaker at The ICE Connect 2025, a dynamic student-focused networking experience hosted at Lagos State University (LASU).ICE Connect brought together forward-thinking students, innovators, and young creatives under one roof to connect, share ideas, and build meaningful collaborations.",
-    coverImage: "/assets/IMG-20250706-WA0017.jpg",
-    images: [
-      "/assets/IMG-20250706-WA0017.jpg",
-      "/assets/IMG-20250706-WA0019.jpg",
-      "/assets/IMG-20250703-WA0011.jpg",
     ],
   },
   // Add more events...
