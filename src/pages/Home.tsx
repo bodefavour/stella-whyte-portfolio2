@@ -5,14 +5,14 @@ import { AboutSection } from "../components/AboutSection";
 import { HighlightsSection } from "../components/HighlightsSection";
 import { SpotlightSection } from "../components/SpotlightSection";
 import { ContactSection } from "../components/ContactSection";
-import { SpeakingEventsCarousel } from "../components/SpeakingHighlights";
+import { SpeakingEvents } from "../components/SpeakingHighlights";
 
 const Home = () => {
     return (
         <main>
             <NavHeroCombo />
             <AboutSection />
-<SpeakingEventsCarousel />
+<SpeakingEvents />
             <HighlightsSection />
             <TimelineCarousel />
             <SpotlightSection />
