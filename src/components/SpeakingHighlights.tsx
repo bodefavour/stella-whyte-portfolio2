@@ -69,7 +69,7 @@ const photoSliderSettings = {
 
 export const SpeakingEvents = () => {
   return (
-    <section className="bg-[#0e0e10] text-white py-20 px-6 md:px-20">
+    <section className="bg-[#0e0e10] text-white py-18 px-6 md:px-20">
       <h2 className="text-4xl md:text-5xl font-playfair text-yellow-300 mb-16 text-center">
         Featured Speaking Engagements
       </h2>
@@ -78,7 +78,7 @@ export const SpeakingEvents = () => {
         {speakingEvents.map((event, index) => (
           <motion.div
             key={index}
-            className="bg-[#111] rounded-3xl p-6 md:p-12 shadow-xl"
+            className="bg-[#111] rounded-3xl p-6 md:p-10 shadow-xl"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -89,7 +89,7 @@ export const SpeakingEvents = () => {
               <img
                 src={event.coverImage}
                 alt={event.title}
-                className="w-full h-64 md:h-full object-cover rounded-2xl shadow-lg"
+                className="w-full h-56 md:h-full object-cover rounded-2xl shadow-lg"
               />
               <div>
                 <h3 className="text-2xl md:text-3xl font-semibold text-yellow-400 mb-4">
