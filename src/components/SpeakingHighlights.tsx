@@ -13,9 +13,9 @@ type EventType = {
 
 const speakingEvents: EventType[] = [
   {
-    title: "Africa Trade Consortium’s Tea Break Edition 2025",
+    title: "UN Women Leadership Forum",
     description:
-   "Speaking at the event held at the Grand Pela Hotel in Abuja, Okhueleigbe commended the government’s efforts to support businesses through tax exemptions, Pioneer Status Incentives, Export Processing Grants, and other tax reliefs. She noted that these incentives will not only strengthen businesses but also create jobs, reduce poverty, and improve the standard of living.",
+      "Ebosetale delivered a powerful keynote to over 500 global leaders on gender equality and sustainable development, held in Abuja, Nigeria.",
     coverImage: "/events/un/cover.jpg",
     images: [
       "/events/un/1.jpg",
