@@ -11,28 +11,28 @@ type EventType = {
 };
 
 const speakingEvents: EventType[] = [
-  {
-    title: "UN Women Leadership Forum",
+    {
+    title: "Africa Trade Consortium’s Tea Break Edition 2025",
     description:
-      "Ebosetale delivered a powerful keynote to over 500 global leaders on gender equality and sustainable development.",
-    coverImage: "/events/un/cover.jpg",
+      "Speaking at the event held at the Grand Pela Hotel in Abuja, Okhueleigbe commended the government’s efforts to support businesses through tax exemptions, Pioneer Status Incentives, Export Processing Grants, and other tax reliefs. She noted that these incentives will not only strengthen businesses but also create jobs, reduce poverty, and improve the standard of living.",
+    coverImage: "/assets/Screenshot_20250525-213124.jpg",
     images: [
-      "/events/un/1.jpg",
-      "/events/un/2.jpg",
-      "/events/un/3.jpg",
-      "/events/un/4.jpg",
-      "/events/un/5.jpg",
+      "/assets/IMG-20250709-WA0006.jpg",
+      "/assets/IMG-20250709-WA0007.jpg",
+      "/assets/IMG-20250709-WA0008.jpg",
+      "/assets/IMG-20250709-WA0009.jpg",
     ],
   },
   {
-    title: "Youth for Change Summit",
+    title: "The ICE Connect 2025: Lagos State University",
     description:
-      "An inspiring address on digital activism and civic leadership to African youth leaders across the continent.",
-    coverImage: "/events/youth/cover.jpg",
+      "An inspiring address on digital activism and civic leadership to African youth leaders, fostering inclusive policy-making across nations.",
+      "On July 2nd, 2025, Miss Ebosetale was a featured speaker at The ICE Connect 2025, a dynamic student-focused networking experience hosted at Lagos State University (LASU).ICE Connect brought together forward-thinking students, innovators, and young creatives under one roof to connect, share ideas, and build meaningful collaborations.",
+    coverImage: "/assets/IMG-20250706-WA0017.jpg",
     images: [
-      "/events/youth/1.jpg",
-      "/events/youth/2.jpg",
-      "/events/youth/3.jpg",
+      "/assets/IMG-20250706-WA0017.jpg",
+      "/assets/IMG-20250706-WA0019.jpg",
+      "/assets/IMG-20250703-WA0011.jpg",
     ],
   },
 ];
