@@ -18,6 +18,7 @@ const speakingEvents: EventType[] = [
     description:
       "On July 2nd, 2025, Ebosetale was a featured speaker at The ICE Connect 2025, a dynamic student-focused networking experience hosted at Lagos State University (LASU). ICE Connect brought together forward-thinking students, innovators, and young creatives under one roof to connect, share ideas, and build meaningful collaborations.",
     coverImage: "/assets/IMG-20250706-WA0017.jpg",
+    coverVideo: "/assets/",
     images: [
       "/assets/IMG-20250706-WA0017.jpg",
       "/assets/IMG-20250706-WA0019.jpg",
@@ -30,6 +31,7 @@ const speakingEvents: EventType[] = [
       "Speaking at the event held at the Grand Pela Hotel in Abuja, Okhueleigbe commended the government’s efforts to support businesses through tax exemptions, Pioneer Status Incentives, Export Processing Grants, and other tax reliefs. She noted that these incentives will not only strengthen businesses but also create jobs, reduce poverty, and improve the standard of living.",
     coverVideo: "/assets/video-sample.mp4", // optional
     coverImage: "/assets/Screenshot_20250525-213124.jpg",
+    coverVideo?: "",
     images: [
       "/assets/IMG-20250709-WA0006.jpg",
       "/assets/IMG-20250709-WA0007.jpg",
