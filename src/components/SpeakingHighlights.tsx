@@ -15,7 +15,7 @@ const speakingEvents: EventType[] = [
   {
     title: "The ICE Connect 2025: Lagos State University",
     description:
-      "On July 2nd, 2025, Miss Ebosetale was a featured speaker at The ICE Connect 2025, a dynamic student-focused networking experience hosted at Lagos State University (LASU).ICE Connect brought together forward-thinking students, innovators, and young creatives under one roof to connect, share ideas, and build meaningful collaborations.",
+      "On July 2nd, 2025, Ebosetale was a featured speaker at The ICE Connect 2025, a dynamic student-focused networking experience hosted at Lagos State University (LASU).ICE Connect brought together forward-thinking students, innovators, and young creatives under one roof to connect, share ideas, and build meaningful collaborations.",
     coverImage: "/assets/IMG-20250706-WA0017.jpg",
     images: [
       "/assets/IMG-20250706-WA0017.jpg",
