@@ -46,7 +46,7 @@ export const AchievementsCarousel = () => {
   return (
     <>
       <Helmet>
-        <title>Ebosetale Okhueleigbe - Official Portfolio</title>
+        <title>Ebosetale Okhueleigbe</title>
         <meta
           name="description"
           content="The official portfolio for Ebosetale Okhueleigbe, an international model, philanthropist, entrepreneur, and media personality."

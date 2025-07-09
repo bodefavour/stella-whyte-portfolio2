@@ -1,4 +1,3 @@
-// components/NavHeroCombo.tsx
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ColorThief from "colorthief";
@@ -105,7 +104,6 @@ export const NavHeroCombo = () => {
         className="relative min-h-screen w-full transition-colors duration-1000 overflow-hidden"
         style={{ backgroundColor: bgColor }}
       >
-        {/* NAVBAR */}
         <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-md shadow-md border-b border-white/20 px-8 py-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <h1 className="text-lg md:text-2xl font-playfair font-bold" style={{ color: textColor }}>
@@ -125,9 +123,7 @@ export const NavHeroCombo = () => {
           </div>
         </nav>
 
-        {/* HERO SECTION */}
         <div className="w-full h-screen pt-12 px-6 md:px-20 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-between relative z-10">
-          {/* IMAGE */}
           <div className="relative w-full md:w-1/2 flex justify-center mb-10 md:mb-0">
             <div className="relative rounded-full p-4 bg-white/10 backdrop-blur-lg shadow-xl">
               <img
@@ -143,7 +139,6 @@ export const NavHeroCombo = () => {
             </div>
           </div>
 
-          {/* TEXT */}
           <div
             className="w-full md:w-1/2 text-center md:text-left z-10"
             style={{ color: textColor }}

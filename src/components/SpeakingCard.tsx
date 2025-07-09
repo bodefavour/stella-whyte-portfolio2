@@ -1,4 +1,3 @@
-// src/components/SpeakingCard.tsx
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
@@ -32,7 +31,6 @@ export const SpeakingCard = ({ event }: { event: EventType }) => {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      {/* Header Info */}
       <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
         <div className="w-full rounded-2xl overflow-hidden max-h-[400px] shadow-lg">
           {event.coverVideo ? (
@@ -61,8 +59,6 @@ export const SpeakingCard = ({ event }: { event: EventType }) => {
           </p>
         </div>
       </div>
-
-      {/* Photo Carousel */}
       <Slider {...photoSliderSettings}>
         {event.images.map((img, i) => (
           <div key={i} className="px-2">

@@ -71,7 +71,7 @@ export const SpotlightSection = () => {
   return (
     <>
       <Helmet>
-        <title>Ebosetale Okhueleigbe - Official Portfolio</title>
+        <title>Ebosetale Okhueleigbe</title>
         <meta
           name="description"
           content="The official portfolio for Ebosetale Okhueleigbe, an international model, philanthropist, entrepreneur, and media personality."
@@ -134,7 +134,6 @@ export const SpotlightSection = () => {
               )}
             </motion.div>
           </AnimatePresence>
-
           <motion.div
             key={item.id + "-text"}
             initial={{ opacity: 0, y: 30 }}
@@ -160,7 +159,6 @@ export const SpotlightSection = () => {
             )}
           </motion.div>
         </div>
-
         <div className="mt-8 flex justify-center space-x-4">
           {spotlights.map((_, i) => (
             <button

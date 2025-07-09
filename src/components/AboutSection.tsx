@@ -14,11 +14,9 @@ export const AboutSection: React.FC = () => (
       <link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
     </Helmet>
 
-    {/* Background shimmer */}
     <div className="absolute inset-0 bg-gradient-to-br from-yellow-800/10 to-yellow-400/5 blur-3xl opacity-20 z-0" />
 
     <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
-      {/* Left: Visual */}
       <motion.div
         className="w-full flex justify-center"
         initial={{ opacity: 0, x: -30 }}
@@ -37,8 +35,6 @@ export const AboutSection: React.FC = () => (
           </div>
         </div>
       </motion.div>
-
-      {/* Right: Text */}
       <motion.div
         className="space-y-6"
         initial={{ opacity: 0, x: 30 }}
@@ -67,8 +63,6 @@ export const AboutSection: React.FC = () => (
         </p>
       </motion.div>
     </div>
-
-    {/* Stats Section */}
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}

@@ -127,7 +127,7 @@ export const TimelineCarousel = () => {
   return (
     <>
       <Helmet>
-        <title>Ebosetale Okhueleigbe - Official Portfolio</title>
+        <title>Ebosetale Okhueleigbe</title>
         <meta
           name="description"
           content="The official portfolio for Ebosetale Okhueleigbe, an international model, philanthropist, entrepreneur, and media personality."
@@ -195,8 +195,6 @@ export const TimelineCarousel = () => {
                       <p className="text-xl font-semibold mb-1">{item.title}</p>
                       <p className="text-sm text-gray-300">{item.subtitle}</p>
                     </div>
-
-                    {/* Glow around center card */}
                     {isActive && (
                       <div className="absolute -inset-2 bg-yellow-400/20 blur-2xl rounded-3xl z-[-1]"></div>
                     )}
