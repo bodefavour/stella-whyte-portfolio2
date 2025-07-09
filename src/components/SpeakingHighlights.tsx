@@ -31,7 +31,6 @@ const speakingEvents: EventType[] = [
       "Speaking at the event held at the Grand Pela Hotel in Abuja, Okhueleigbe commended the government’s efforts to support businesses through tax exemptions, Pioneer Status Incentives, Export Processing Grants, and other tax reliefs. She noted that these incentives will not only strengthen businesses but also create jobs, reduce poverty, and improve the standard of living.",
     coverVideo: "/assets/video-sample.mp4", // optional
     coverImage: "/assets/Screenshot_20250525-213124.jpg",
-    coverVideo?: "",
     images: [
       "/assets/IMG-20250709-WA0006.jpg",
       "/assets/IMG-20250709-WA0007.jpg",
