@@ -5,6 +5,9 @@ import { Helmet } from "react-helmet-async";
 import stella1 from "../assets/stella1.png";
 import stella2 from "../assets/stella2.png";
 import stella3 from "../assets/stella3.png";
+import stella3 from "../assets/IMG-20250706-WA0027.jpg";
+import stella3 from "../assets/IMG-20250706-WA0030.jpg";
+import stella3 from "../assets/IMG-20250706-WA0019.jpg";
 <link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 
 const navItems = [
@@ -25,11 +28,23 @@ const images = [
   },
   {
     src: stella2,
-    titles: ["Founder", "Beauty Queen", "Philanthropist","Tax Auditor", "Public Speaker"],
+    titles: ["Founder", "Tax Auditor", "Public Speaker"],
   },
   {
     src: stella3,
     titles: ["TV Host", "Entrepreneur", "Humanitarian", "Advocate"],
+  },
+{
+    src: stella4,
+    titles: ["Philanthropist", "Beauty Queen", "Media Personality"],
+  },
+{
+    src: stella5,
+    titles: ["Entrepreneu", "Humanitarian"],
+  },
+{
+    src: stella5,
+    titles: ["Tv Host", "Beauty Queen", "Media Personality"],
   },
 ];
 
