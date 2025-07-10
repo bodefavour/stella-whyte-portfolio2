@@ -40,7 +40,7 @@ const images = [
   },
 {
     src: stella5,
-    titles: ["Entrepreneu", "Humanitarian"],
+    titles: ["Entrepreneur", "Humanitarian"],
   },
 {
     src: stella5,
