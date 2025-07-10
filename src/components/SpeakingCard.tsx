@@ -36,6 +36,9 @@ export const SpeakingCard = ({ event }: { event: EventType }) => {
           {event.coverVideo ? (
             <video
               src={event.coverVideo}
+autoPlay
+muted
+loop
               controls
               playsInline
               className="w-full h-full object-cover rounded-2xl"
