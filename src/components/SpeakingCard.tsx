@@ -39,7 +39,6 @@ export const SpeakingCard = ({ event }: { event: EventType }) => {
 autoPlay
 muted
 loop
-              controls
               playsInline
               className="w-full h-full object-cover rounded-2xl"
             />
