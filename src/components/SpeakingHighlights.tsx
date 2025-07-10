@@ -14,12 +14,24 @@ const speakingEvents = [
       "/assets/IMG-20250703-WA0011.jpg",
     ],
   },
-  {
+{
+    title: "Africa Women Conference, Zambia 2024",
+    description:
+      "In 2024, Miss Ebosetale proudly represented Nigeria on an international stage as a distinguished speaker at the Africa Women’s Conference (AWC) held in Lusaka, Zambia. <b></b>Themed around empowerment, innovation, and inclusive leadership, the AWC brought together women changemakers, leaders, and advocates from across the continent and diaspora to shape the future of African communities through dialogue and actionable strategies.",
+    coverVideo: "https://res.cloudinary.com/dydwcaxmx/video/upload/v1752093628/VID-20250706-WA0032_ftnclr.mp4", // optional
+    // coverImage: "/assets/Screenshot_20250525-213124.jpg",
+    images: [
+      "/assets/IMG-20250709-WA0006.jpg", "/assets/Screenshot_20250525-213124.jpg",
+      "/assets/IMG-20250709-WA0008.jpg",
+      "/assets/IMG-20250709-WA0009.jpg",
+    ],
+  },
+{
     title: "Africa Trade Consortium’s Tea Break Edition 2025",
     description:
       "Speaking at the event held at the Grand Pela Hotel in Abuja, Okhueleigbe commended the government’s efforts to support businesses through tax exemptions, Pioneer Status Incentives, Export Processing Grants, and other tax reliefs. She noted that these incentives will not only strengthen businesses but also create jobs, reduce poverty, and improve the standard of living.",
-    coverVideo: "https://res.cloudinary.com/dydwcaxmx/video/upload/v1752093628/VID-20250706-WA0032_ftnclr.mp4", // optional
-    // coverImage: "/assets/Screenshot_20250525-213124.jpg",
+    // coverVideo: "https://res.cloudinary.com/dydwcaxmx/video/upload/v1752093628/VID-20250706-WA0032_ftnclr.mp4", // optional
+    coverImage: "/assets/Screenshot_20250525-213124.jpg",
     images: [
       "/assets/IMG-20250709-WA0006.jpg", "/assets/Screenshot_20250525-213124.jpg",
       "/assets/IMG-20250709-WA0008.jpg",
