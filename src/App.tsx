@@ -11,6 +11,7 @@ import { Philanthropy } from "./pages/Philanthropy";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Education from "./pages/Education";
+import Booking from "./pages/Booking";
 
 const App: React.FC = () => {
   return (
@@ -35,6 +36,8 @@ const App: React.FC = () => {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/education" element={<Education />} />
+<Route path="/booking" 
+element={<Booking />} />
         </Routes>
       </Router>
     </HelmetProvider>
