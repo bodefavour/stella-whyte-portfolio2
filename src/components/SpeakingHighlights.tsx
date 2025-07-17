@@ -1,5 +1,6 @@
 import Slider from "react-slick";
 import { SpeakingCard } from "./SpeakingCard";
+import { motion } from "framer-motion";
 
 const speakingEvents = [
 {
@@ -64,7 +65,14 @@ export const SpeakingEvents = () => (
         <SpeakingCard key={index} event={event} />
       ))}
     </Slider>
-
+    
+    <motion.div
+      className="mt-20 text-center"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      viewport={{ once: true }}
+    >
     <div className="=mt-20 text-center">
       <h3 className="text-3xl md:text-4xl font-playfair text-yellow-300 mb-8">
         Invite Ebosetale to Speak at Your Event
@@ -77,6 +85,7 @@ export const SpeakingEvents = () => (
         className="inline-block bg-yellow-300 text-black font-semibold py-4 px-8 rounded-full hover:bg-yellow-400 transition duration-300">
           Book Her To Speak
           </a>
-    </div>  
+    </div>
+    </motion.div>  
   </section>
 );
