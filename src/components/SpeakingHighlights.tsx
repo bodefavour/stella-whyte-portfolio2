@@ -64,5 +64,19 @@ export const SpeakingEvents = () => (
         <SpeakingCard key={index} event={event} />
       ))}
     </Slider>
+
+    <div className="=mt-20 text-center">
+      <h3 className="text-3xl md:text-4xl font-playfair text-yellow-300 mb-8">
+        Invite Ebosetale to Speak at Your Event
+        </h3>
+      <p className="text-gray-300 font-outfit max-w-2xl mx-auto mb-8 text-lg">
+        Whether it's a leadership summit, Conference or special event, invite Ebosetale to inspire your audience with powerful stories and actionable insights.
+        </p>
+        <a 
+        href="/booking"
+        className="inline-block bg-yellow-300 text-black font-semibold py-4 px-8 rounded-full hover:bg-yellow-400 transition duration-300">
+          Book Her To Speak
+          </a>
+    </div>  
   </section>
 );
