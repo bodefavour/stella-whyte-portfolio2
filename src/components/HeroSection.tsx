@@ -8,8 +8,8 @@ import stella3 from "../assets/stella3.png";
 import stella4 from "../assets/IMG-20250706-WA0027.jpg";
 import stella5 from "../assets/IMG-20250706-WA0030.jpg";
 import stella6 from "../assets/IMG-20250706-WA0019.jpg";
-import stella7 from "../assets/";
-import stella8 from "../assets/";
+import stella7 from "../assets/IMG-20250706-WA0025(1).jpg";
+import stella8 from "../assets/IMG-20250706-WA0023(1).jpg";
 
 <link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 
