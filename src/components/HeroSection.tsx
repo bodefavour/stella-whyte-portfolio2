@@ -8,6 +8,9 @@ import stella3 from "../assets/stella3.png";
 import stella4 from "../assets/IMG-20250706-WA0027.jpg";
 import stella5 from "../assets/IMG-20250706-WA0030.jpg";
 import stella6 from "../assets/IMG-20250706-WA0019.jpg";
+import stella7 from "../assets/";
+import stella8 from "../assets/";
+
 <link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 
 const navItems = [
@@ -44,7 +47,19 @@ const images = [
   },
 {
     src: stella5,
-    titles: ["Tv Host", "Beauty Queen", "Media Personality"],
+    titles: ["Founder", "Beauty Queen", "Public Speaker"],
+  },
+  {
+    src: stella6,
+    titles: ["Gender Analyst", "Golf Champion"],
+  },
+  {
+    src: stella7,
+    titles: ["Advocate", "Tax Auditor"],
+  },
+  {
+    src: stella8,
+    titles: ["Tv Host", "Beauty Queen"],
   },
 ];
 
