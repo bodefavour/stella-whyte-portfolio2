@@ -61,6 +61,10 @@ const images = [
     src: stella8,
     titles: ["Tv Host", "Beauty Queen", "Philanthropist"],
   },
+  {
+    src: stella6,
+    titles: ["Humanitarian", "Entrepreneur", "Philanthropist"],
+  },
 ];
 
 function getBrightness(r: number, g: number, b: number): number {
