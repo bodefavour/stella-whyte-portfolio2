@@ -43,23 +43,23 @@ const images = [
   },
 {
     src: stella5,
-    titles: ["Entrepreneur", "Humanitarian"],
+    titles: ["Public Speaker", "Entrepreneur", "Humanitarian"],
   },
 {
     src: stella5,
-    titles: ["Founder", "Beauty Queen", "Public Speaker"],
+    titles: ["Media Personality", "Beauty Queen", "Public Speaker"],
   },
   {
     src: stella6,
-    titles: ["Gender Analyst", "Golf Champion"],
+    titles: ["Tax Auditor", "Gender Analyst", "Golf Champion"],
   },
   {
     src: stella7,
-    titles: ["Advocate", "Tax Auditor"],
+    titles: ["Advocate", "Tax Auditor", "Founder"],
   },
   {
     src: stella8,
-    titles: ["Tv Host", "Beauty Queen"],
+    titles: ["Tv Host", "Beauty Queen", "Philanthropist"],
   },
 ];
 
