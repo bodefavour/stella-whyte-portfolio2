@@ -47,9 +47,9 @@ export const LatestSpeakingModal = () => {
               ✨ Catch Her Live!
             </h3>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Miss Ebosetale is speaking at{" "}
+              Ebosetale Okhueleigbe is speaking at{" "}
               <strong>Business Day: SME Clinic</strong> this month on
-              Thursday 31st July, 2025. Be part of the movement to gain knowledge on how to minimize your tax liabilities.
+              Thursday 31st, 2025. Be part of the movement to gain knowledge on how to minimize your tax liabilities.
             </p>
 
             <Link
