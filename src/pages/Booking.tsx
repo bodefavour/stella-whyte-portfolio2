@@ -44,7 +44,7 @@ const Booking = () => {
         <p className="text-gray-400 mt-6 font-outfit">
           Can’t access the calendar? Reach out via{" "}
           <a
-            href="mailto:ebosetaleokhueleigbe@gmail.com"
+            href="mailto:ladysmartie@gmail.com"
             className="text-yellow-300 underline hover:text-yellow-400"
           >
             email
