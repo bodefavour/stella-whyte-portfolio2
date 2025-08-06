@@ -18,6 +18,7 @@ const Home = () => {
             <HighlightsSection />
             <TimelineCarousel />
             <SpotlightSection />
+            <WMFSection /> 
             <ContactSection />
         </main>
     );
