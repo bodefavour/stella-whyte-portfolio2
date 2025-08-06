@@ -7,7 +7,7 @@ import { SpotlightSection } from "../components/SpotlightSection";
 import { ContactSection } from "../components/ContactSection";
 import { SpeakingEvents } from "../components/SpeakingHighlights";
 import { LatestSpeakingModal } from "../components/LatestSpeakingModal";
-import {WMFSection} from "../components/WMFSection";
+import { WMFSection } from "../components/WMFSection";
 
 const Home = () => {
     return (
