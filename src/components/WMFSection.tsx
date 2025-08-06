@@ -50,7 +50,7 @@ export const WMFSection = () => {
           className="relative"
         >
           <img
-            src="/assets/wmf-placeholder.jpg" // <-- Replace this later with actual WMF image
+            src="/assets/IMG-20250806-WA0001(1).jpg" // <-- Replace this later with actual WMF image
             alt="Women Mentorship Forum"
             className="rounded-3xl shadow-2xl object-cover w-full h-full"
           />
