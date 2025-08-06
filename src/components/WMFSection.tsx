@@ -1,0 +1,62 @@
+import { motion } from "framer-motion";
+import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+
+export const WMFSection = () => {
+  return (
+    <section className="bg-[#0e0e10] text-white py-20 px-6 md:px-20">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Text Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="space-y-6"
+        >
+          <h2 className="text-4xl md:text-5xl font-playfair text-yellow-300">
+            Women Mentorship Forum (WMF)
+          </h2>
+          <p className="text-lg font-outfit text-gray-300 leading-relaxed">
+            Founded by Ebosetale Okhueleigbe, WMF is a dynamic platform committed to empowering women through mentorship, collaboration, and actionable leadership. It’s a growing community where women uplift each other to achieve personal and professional growth.
+          </p>
+          <div className="flex space-x-4">
+            <a
+              href="https://chat.whatsapp.com/GF066rANhE88pYFa2BMiLF?mode=ac_t"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-full font-semibold transition"
+            >
+              <FaWhatsapp />
+              <span>Join on WhatsApp</span>
+            </a>
+            <a
+              href="https://www.instagram.com/official__wmf?igsh=ZHJ2dmVteGJ4Z2Z1&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 bg-pink-500 hover:bg-pink-600 text-white py-3 px-6 rounded-full font-semibold transition"
+            >
+              <FaInstagram />
+              <span>Follow on Instagram</span>
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Visual Side */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative"
+        >
+          <img
+            src="/assets/wmf-placeholder.jpg" // <-- Replace this later with actual WMF image
+            alt="Women Mentorship Forum"
+            className="rounded-3xl shadow-2xl object-cover w-full h-full"
+          />
+          <div className="absolute inset-0 bg-black/30 rounded-3xl"></div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
