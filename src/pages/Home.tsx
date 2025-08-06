@@ -8,6 +8,7 @@ import { ContactSection } from "../components/ContactSection";
 import { SpeakingEvents } from "../components/SpeakingHighlights";
 import { LatestSpeakingModal } from "../components/LatestSpeakingModal";
 import { WMFSection } from "../components/WMFSection";
+import { WMFFloatingCTA } from "../components/WMFFloatingCTA";
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
             <SpotlightSection />
             <WMFSection /> 
             <ContactSection />
+            <WMFFloatingCTA />
         </main>
     );
 };
