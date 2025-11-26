@@ -138,22 +138,21 @@ export const NavHeroCombo = () => {
         className="relative min-h-screen w-full transition-colors duration-1000 overflow-hidden"
         style={{ backgroundColor: bgColor }}
       >
-        <nav className="fixed top-0 left-0 w-full z-50 bg-black shadow-2xl border-b border-yellow-400/20">
-          <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-5">
-            <Link to="/" className="text-2xl md:text-3xl font-playfair font-bold text-yellow-300 hover:text-yellow-400 transition-colors tracking-wide">
+        <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-md shadow-md border-b border-white/20 px-4 md:px-8 py-4">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <Link to="/" className="text-lg md:text-2xl font-playfair font-bold" style={{ color: textColor }}>
               Stella Whyte
             </Link>
             
             {/* Desktop Menu */}
-            <ul className="hidden md:flex items-center gap-8 font-outfit">
+            <ul className="hidden md:flex gap-6 text-sm font-outfit" style={{ color: textColor }}>
               {navItems.map((item) => (
                 <li key={item.path}>
                   <Link
                     to={item.path}
-                    className="text-white hover:text-yellow-300 transition-all duration-300 text-sm uppercase tracking-wider font-medium relative group"
+                    className="cursor-pointer hover:text-yellow-300 transition-colors"
                   >
                     {item.label}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-300 group-hover:w-full transition-all duration-300"></span>
                   </Link>
                 </li>
               ))}
@@ -161,7 +160,8 @@ export const NavHeroCombo = () => {
             
             {/* Mobile Menu Button */}
             <button 
-              className="md:hidden text-2xl z-50 text-yellow-300 hover:text-yellow-400 transition-colors" 
+              className="md:hidden text-2xl z-50" 
+              style={{ color: textColor }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -172,33 +172,72 @@ export const NavHeroCombo = () => {
           {/* Mobile Menu */}
           <AnimatePresence>
             {mobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, x: "100%" }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: "100%" }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="fixed inset-0 bg-black/95 backdrop-blur-lg md:hidden"
-                style={{ paddingTop: "80px" }}
-              >
-                <ul className="flex flex-col items-center justify-center space-y-6 h-full font-outfit text-lg">
-                  {navItems.map((item) => (
-                    <motion.li
-                      key={item.path}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 }}
+              <>
+                {/* Backdrop */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 bg-black/60 md:hidden z-40"
+                  onClick={() => setMobileMenuOpen(false)}
+                />
+                
+                {/* Sidebar */}
+                <motion.div
+                  initial={{ x: "100%" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "100%" }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  className="fixed top-0 right-0 h-full w-[280px] bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a] md:hidden z-50 shadow-2xl"
+                >
+                  {/* Close Button */}
+                  <div className="flex justify-end p-6">
+                    <button 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-white hover:text-yellow-300 transition-colors"
+                      aria-label="Close menu"
                     >
-                      <Link
-                        to={item.path}
-                        className="text-white hover:text-yellow-300 transition-colors text-2xl font-semibold"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
+                      <FaTimes size={24} />
+                    </button>
+                  </div>
+
+                  {/* Logo/Name */}
+                  <div className="px-6 mb-8">
+                    <h2 className="text-2xl font-playfair font-bold text-yellow-300 border-b border-yellow-300/20 pb-4">
+                      Stella Whyte
+                    </h2>
+                  </div>
+
+                  {/* Menu Items */}
+                  <nav className="px-6">
+                    <ul className="space-y-1">
+                      {navItems.map((item, index) => (
+                        <motion.li
+                          key={item.path}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                        >
+                          <Link
+                            to={item.path}
+                            className="block py-3 px-4 text-gray-200 hover:text-yellow-300 hover:bg-yellow-300/10 rounded-lg transition-all duration-200 font-outfit text-base border-b border-gray-800/50"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </nav>
+
+                  {/* Footer */}
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <p className="text-xs text-gray-400 text-center font-outfit italic">
+                      Building Legacies Through Grace and Grit
+                    </p>
+                  </div>
+                </motion.div>
+              </>
             )}
           </AnimatePresence>
         </nav>
