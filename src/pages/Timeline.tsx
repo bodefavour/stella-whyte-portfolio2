@@ -85,5 +85,6 @@ export default function TimelinePage() {
         </motion.div>
       </div>
     </div>
+    </>
   );
 }

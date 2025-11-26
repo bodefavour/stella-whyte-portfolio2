@@ -50,15 +50,15 @@ export const AboutSection: React.FC = () => (
           A dynamic and results-oriented leader with a Master's in Gender Studies, MBA, and top-tier certifications from Harvard Business School and the London School of Business Administration. Ebosetale is a tax auditor, gender analyst, and public service strategist dedicated to inclusive leadership.
         </p>
 
-        <p className="text-lg font-outfit text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg font-outfit text-gray-300 leading-normal md:leading-relaxed">
           She is the founder of <strong>P.S.L</strong> and the <strong>Women Mentorship Forum (WMF)</strong>, and currently serves as President of <strong>Voice Out Vanguard</strong> and leader of the <strong>Vote Right Campaign</strong>.
         </p>
 
-        <p className="text-lg font-outfit text-gray-300 leading-relaxed">
-          Her certifications span Financial Accounting, Corporate Finance, Tax Planning, and Strategic Management. She’s an Associate Member of the Chartered Institute of Taxation of Nigeria (CITN) and the Chartered Institute of Forensics and Certified Fraud Investigators of Nigeria.
+        <p className="text-base md:text-lg font-outfit text-gray-300 leading-normal md:leading-relaxed">
+          Her certifications span Financial Accounting, Corporate Finance, Tax Planning, and Strategic Management. She's an Associate Member of the Chartered Institute of Taxation of Nigeria (CITN) and the Chartered Institute of Forensics and Certified Fraud Investigators of Nigeria.
         </p>
 
-        <p className="text-lg font-outfit text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg font-outfit text-gray-300 leading-normal md:leading-relaxed">
           Recognized as <strong>Humanitarian of the Year</strong>, a <strong>PR Times Africa</strong> honoree, and <strong>WHO IS WHO Impact Maker</strong>, she champions equity, empowerment, and sustainable development across Africa.
         </p>
       </motion.div>
