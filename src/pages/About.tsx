@@ -62,7 +62,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
         >
           <img
-            src="/images/stella-about.jpg"
+            src="/assets/IMG-20250706-WA0017.jpg"
             alt="Ebosetale Okhueleigbe"
             className="rounded-2xl shadow-2xl w-full object-cover"
           />
@@ -86,7 +86,7 @@ export default function AboutPage() {
                 key={i}
                 className="bg-[#111] px-4 py-2 rounded-lg border border-white/10 hover:border-yellow-300 transition"
               >
-                ✅ {item}
+                {item}
               </li>
             ))}
           </ul>
