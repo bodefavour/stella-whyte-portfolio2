@@ -36,17 +36,17 @@ export const AboutSection: React.FC = () => (
         </div>
       </motion.div>
       <motion.div
-        className="space-y-6"
+        className="space-y-4 md:space-y-6"
         initial={{ opacity: 0, x: 30 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl md:text-5xl font-playfair font-bold text-yellow-300">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-yellow-300">
           Meet Ebosetale Okhueleigbe, ACTI
         </h2>
 
-        <p className="text-lg font-outfit text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg font-outfit text-gray-300 leading-normal md:leading-relaxed">
           A dynamic and results-oriented leader with a Master's in Gender Studies, MBA, and top-tier certifications from Harvard Business School and the London School of Business Administration. Ebosetale is a tax auditor, gender analyst, and public service strategist dedicated to inclusive leadership.
         </p>
 
