@@ -39,6 +39,18 @@ const speakingEvents = [
       "/assets/IMG-20250709-WA0009.jpg",
     ],
   },
+{
+    title: "Africa's Women Achievers Award and Summit, South Africa 2025",
+    description:
+      "Saturday, August 30, 2025, in Johannesburg, South Africa, Miss Ebosetale was honored as a distinguished speaker at the Africa's Women Achievers Award and Summit. This prestigious event celebrates the accomplishments of African women who have made significant contributions to their communities and industries. The summit serves as a platform for inspiring dialogue, networking, and empowerment among women leaders from across the continent. 'The Africa we Want is one built by Us-brick by brick,woman by woman,nation by nation' she remarked during her keynote address, emphasizing the crucial role of women in shaping Africa's future.",
+    coverVideo: "https://res.cloudinary.com/dydwcaxmx/video/upload/v1764173482/SaveClip.App_AQNSlZQYr93hAz9GCLmunvcAC9c6TSI1F2rqixFxn4_CIRtXRE6S2KEwjEv9saXyuWMGy-1hhzPhJodSaQ1iAO4U4j1MrF7X3wbgtzA_qlkauk.mp4", // optional
+    // coverImage: "/assets/Screenshot_20250525-213124.jpg",
+    images: [
+      "/assets/SaveClip.App_541221136_17919336519152345_1035506579160725009_n.jpg", // "/assets/Screenshot_20250525-213124.jpg",
+      "/assets/SaveClip.App_541371773_17919336528152345_4318465453906262881_n.jpg",
+      "/assets/SaveClip.App_541298391_17919336507152345_5471861538772609906_n.jpg",
+    ],
+  },
 ];
 
 const eventSliderSettings = {
