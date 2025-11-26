@@ -36,28 +36,40 @@ export const LatestSpeakingModal = () => {
               <X size={20} />
             </button>
 
-            {/* Event Flyer */}
+            {/* WMF Image */}
             <img
-              src="https://res.cloudinary.com/dydwcaxmx/image/upload/v1753174342/IMG-20250721-WA0038_mvx8or.jpg"
-              alt="Africa Global Impact Forum Flyer"
+              src="/assets/IMG-20250806-WA0001(1).jpg"
+              alt="Women Mentorship Forum"
               className="rounded-xl mb-4 w-full object-cover max-h-64"
             />
 
             <h3 className="text-2xl font-bold text-yellow-300 mb-2">
-              ✨ Catch Her Live!
+              ✨ Join Women Mentorship Forum
             </h3>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Ebosetale Okhueleigbe is speaking at{" "}
-              <strong>Business Day: SME Clinic</strong> this month on
-              Thursday 31st, 2025. Be part of the movement to gain knowledge on how to minimize your tax liabilities.
+              Be part of a dynamic platform committed to empowering women through mentorship, collaboration, and actionable leadership. Join our growing community where women uplift each other to achieve personal and professional growth.
             </p>
 
-            <Link
-              to="/speaking"
-              className="inline-block bg-yellow-300 hover:bg-yellow-400 text-black font-semibold py-2 px-4 rounded-xl transition"
-            >
-              View All Speaking Events
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://chat.whatsapp.com/GF066rANhE88pYFa2BMiLF?mode=ac_t"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-xl transition"
+                onClick={close}
+              >
+                Join on WhatsApp
+              </a>
+              <a
+                href="https://www.instagram.com/official__wmf?igsh=ZHJ2dmVteGJ4Z2Z1&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-xl transition"
+                onClick={close}
+              >
+                Follow on Instagram
+              </a>
+            </div>
           </motion.div>
         </motion.div>
       )}

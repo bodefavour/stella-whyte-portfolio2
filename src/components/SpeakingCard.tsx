@@ -51,10 +51,10 @@ loop
           )}
         </div>
         <div>
-          <h3 className="text-2xl md:text-3xl font-semibold text-yellow-400 mb-4">
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-yellow-400 mb-3 md:mb-4">
             {event.title}
           </h3>
-          <p className="text-gray-300 font-outfit text-lg leading-relaxed">
+          <p className="text-sm md:text-base lg:text-lg font-outfit text-gray-300 leading-normal md:leading-relaxed">
             {event.description}
           </p>
         </div>
