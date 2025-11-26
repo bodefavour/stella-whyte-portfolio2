@@ -56,10 +56,10 @@ export const AwardsSection = () => {
           <div className="flex items-center justify-center mb-4">
             <FaTrophy className="text-yellow-300 text-5xl" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-playfair text-yellow-300 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair text-yellow-300 mb-3 md:mb-4 leading-tight">
             Awards & Recognitions
           </h2>
-          <p className="text-lg text-gray-300 font-outfit max-w-3xl mx-auto">
+          <p className="text-sm md:text-base lg:text-lg text-gray-300 font-outfit max-w-3xl mx-auto leading-normal md:leading-relaxed">
             Celebrating excellence, dedication, and transformative leadership across Africa and beyond
           </p>
         </motion.div>
@@ -95,11 +95,11 @@ export const AwardsSection = () => {
               </div>
 
               {/* Award Details */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-yellow-300 mb-2 group-hover:text-yellow-200 transition-colors">
+              <div className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-semibold text-yellow-300 mb-1 md:mb-2 group-hover:text-yellow-200 transition-colors leading-tight">
                   {award.title}
                 </h3>
-                <p className="text-gray-300 text-sm font-outfit">
+                <p className="text-gray-300 text-xs md:text-sm font-outfit leading-snug md:leading-normal">
                   {award.description}
                 </p>
               </div>

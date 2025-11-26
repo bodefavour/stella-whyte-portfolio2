@@ -11,20 +11,20 @@ export const WMFSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="space-y-6"
+          className="space-y-4 md:space-y-6"
         >
-          <h2 className="text-4xl md:text-5xl font-playfair text-yellow-300">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair text-yellow-300 leading-tight">
             Women Mentorship Forum (WMF)
           </h2>
-          <p className="text-lg font-outfit text-gray-300 leading-relaxed">
-            Founded by Ebosetale Okhueleigbe, WMF is a dynamic platform committed to empowering women through mentorship, collaboration, and actionable leadership. It’s a growing community where women uplift each other to achieve personal and professional growth.
+          <p className="text-sm md:text-base lg:text-lg font-outfit text-gray-300 leading-normal md:leading-relaxed">
+            Founded by Ebosetale Okhueleigbe, WMF is a dynamic platform committed to empowering women through mentorship, collaboration, and actionable leadership. It's a growing community where women uplift each other to achieve personal and professional growth.
           </p>
-          <div className="flex space-x-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:space-x-4">
             <a
               href="https://chat.whatsapp.com/GF066rANhE88pYFa2BMiLF?mode=ac_t"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-full font-semibold transition"
+              className="flex items-center justify-center space-x-2 bg-green-500 hover:bg-green-600 text-white py-2.5 md:py-3 px-4 md:px-6 rounded-full font-semibold transition text-sm md:text-base"
             >
               <FaWhatsapp />
               <span>Join on WhatsApp</span>
@@ -33,7 +33,7 @@ export const WMFSection = () => {
               href="https://www.instagram.com/official__wmf?igsh=ZHJ2dmVteGJ4Z2Z1&utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 bg-pink-500 hover:bg-pink-600 text-white py-3 px-6 rounded-full font-semibold transition"
+              className="flex items-center justify-center space-x-2 bg-pink-500 hover:bg-pink-600 text-white py-2.5 md:py-3 px-4 md:px-6 rounded-full font-semibold transition text-sm md:text-base"
             >
               <FaInstagram />
               <span>Follow on Instagram</span>

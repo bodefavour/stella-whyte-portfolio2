@@ -5,3 +5,41 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Outfit:wght@300;500&display=swap');
+
+/* Performance optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #0e0e10;
+  color: white;
+}
+
+/* Fix scrolling flashes */
+html, body {
+  background: #0e0e10;
+  min-height: 100%;
+}
+
+/* Optimize images for faster loading */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hardware acceleration for smooth animations */
+.motion-safe {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

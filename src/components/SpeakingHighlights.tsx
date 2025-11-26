@@ -101,10 +101,10 @@ export const SpeakingEvents = () => (
       viewport={{ once: true }}
     >
     <div className="=mt-20 text-center">
-      <h3 className="text-3xl md:text-4xl font-playfair text-yellow-300 mb-8">
+      <h3 className="text-2xl md:text-3xl lg:text-4xl font-playfair text-yellow-300 mb-4 md:mb-8 leading-tight">
         Invite Ebosetale to Speak at Your Event
         </h3>
-      <p className="text-gray-300 font-outfit max-w-2xl mx-auto mb-8 text-lg">
+      <p className="text-gray-300 font-outfit max-w-2xl mx-auto mb-6 md:mb-8 text-sm md:text-base lg:text-lg leading-normal md:leading-relaxed">
         Whether it's a leadership summit, Conference or special event, invite Ebosetale to inspire your audience with powerful stories and actionable insights.
         </p>
         <a 
