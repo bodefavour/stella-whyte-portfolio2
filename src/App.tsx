@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Achievements from "./pages/Achievements";
 import Timeline from "./pages/Timeline";
 import Spotlight from "./pages/Spotlight";
+import Speaking from "./pages/Speaking";
 import { Philanthropy } from "./pages/Philanthropy";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
@@ -29,6 +30,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/speaking" element={<Speaking />} />
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/timeline" element={<Timeline />} />
           <Route path="/spotlight" element={<Spotlight />} />
@@ -36,8 +38,7 @@ const App: React.FC = () => {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/education" element={<Education />} />
-<Route path="/booking" 
-element={<Booking />} />
+          <Route path="/booking" element={<Booking />} />
         </Routes>
       </Router>
     </HelmetProvider>

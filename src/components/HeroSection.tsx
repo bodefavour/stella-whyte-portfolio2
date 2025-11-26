@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import ColorThief from "colorthief";
 import { Helmet } from "react-helmet-async";
 import stella1 from "../assets/stella1.png";
@@ -14,14 +15,15 @@ import stella8 from "../assets/IMG-20250706-WA0023(1).jpg";
 <link rel="canonical" href="https://www.ebosetaleokhueleigbe.com/" />
 
 const navItems = [
-  "About",
-  "Achievements",
-  "Timeline",
-  "Spotlight",
-  "Philanthropy",
-  "Gallery",
-  "Contact",
-  "Education"
+  { label: "About", path: "/about" },
+  { label: "Speaking", path: "/speaking" },
+  { label: "Achievements", path: "/achievements" },
+  { label: "Timeline", path: "/timeline" },
+  { label: "Spotlight", path: "/spotlight" },
+  { label: "Philanthropy", path: "/philanthropy" },
+  { label: "Education", path: "/education" },
+  { label: "Gallery", path: "/gallery" },
+  { label: "Contact", path: "/contact" },
 ];
 
 const images = [
@@ -136,16 +138,18 @@ export const NavHeroCombo = () => {
       >
         <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-md shadow-md border-b border-white/20 px-8 py-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <h1 className="text-lg md:text-2xl font-playfair font-bold" style={{ color: textColor }}>
+            <Link to="/" className="text-lg md:text-2xl font-playfair font-bold" style={{ color: textColor }}>
               Stella Whyte
-            </h1>
+            </Link>
             <ul className="hidden md:flex gap-6 text-sm font-outfit" style={{ color: textColor }}>
               {navItems.map((item) => (
-                <li
-                  key={item}
-                  className="cursor-pointer hover:text-yellow-300 transition-colors"
-                >
-                  {item}
+                <li key={item.path}>
+                  <Link
+                    to={item.path}
+                    className="cursor-pointer hover:text-yellow-300 transition-colors"
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
