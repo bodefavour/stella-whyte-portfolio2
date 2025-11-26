@@ -47,11 +47,13 @@ const eventSliderSettings = {
   speed: 700,
   slidesToShow: 1,
   slidesToScroll: 1,
-  arrows: false,
+  arrows: true,
   autoplay: true,
   autoplaySpeed: 8000,
   pauseOnHover: true,
   swipe: true,
+  draggable: true,
+  touchMove: true,
 };
 
 export const SpeakingEvents = () => (
