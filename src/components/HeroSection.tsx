@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import ColorThief from "colorthief";
 import { Helmet } from "react-helmet-async";
+import { FaTimes, FaBars } from "react-icons/fa";
 import stella1 from "../assets/stella1.png";
 import stella2 from "../assets/stella2.png";
 import stella3 from "../assets/stella3.png";
@@ -74,6 +75,7 @@ export const NavHeroCombo = () => {
   const [bgColor, setBgColor] = useState("#f9f9f9");
   const [textColor, setTextColor] = useState("black");
   const [titleIndex, setTitleIndex] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const cycle = setInterval(() => {
@@ -136,11 +138,13 @@ export const NavHeroCombo = () => {
         className="relative min-h-screen w-full transition-colors duration-1000 overflow-hidden"
         style={{ backgroundColor: bgColor }}
       >
-        <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-md shadow-md border-b border-white/20 px-8 py-4">
+        <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-md shadow-md border-b border-white/20 px-4 md:px-8 py-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <Link to="/" className="text-lg md:text-2xl font-playfair font-bold" style={{ color: textColor }}>
               Stella Whyte
             </Link>
+            
+            {/* Desktop Menu */}
             <ul className="hidden md:flex gap-6 text-sm font-outfit" style={{ color: textColor }}>
               {navItems.map((item) => (
                 <li key={item.path}>
@@ -153,8 +157,50 @@ export const NavHeroCombo = () => {
                 </li>
               ))}
             </ul>
-            <div className="md:hidden text-2xl" style={{ color: textColor }}>☰</div>
+            
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden text-2xl z-50" 
+              style={{ color: textColor }}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, x: "100%" }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: "100%" }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="fixed inset-0 bg-black/95 backdrop-blur-lg md:hidden"
+                style={{ paddingTop: "80px" }}
+              >
+                <ul className="flex flex-col items-center justify-center space-y-6 h-full font-outfit text-lg">
+                  {navItems.map((item) => (
+                    <motion.li
+                      key={item.path}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <Link
+                        to={item.path}
+                        className="text-white hover:text-yellow-300 transition-colors text-2xl font-semibold"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </nav>
 
         <div className="w-full h-screen pt-12 px-6 md:px-20 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-between relative z-10">
