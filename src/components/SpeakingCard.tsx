@@ -66,7 +66,7 @@ loop
               src={img}
               alt={`Event ${event.title} - Photo ${i + 1}`}
               onClick={() => setCover(img)}
-              className="rounded-xl h-72 w-full object-contain cursor-pointer hover:opacity-80 bg-black/20"
+              className="rounded-xl h-52 w-full object-cover cursor-pointer hover:opacity-80"
             />
           </div>
         ))}
