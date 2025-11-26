@@ -9,6 +9,7 @@ import { SpeakingEvents } from "../components/SpeakingHighlights";
 import { LatestSpeakingModal } from "../components/LatestSpeakingModal";
 import { WMFSection } from "../components/WMFSection";
 import { WMFFloatingCTA } from "../components/WMFFloatingCTA";
+import { AwardsSection } from "../components/AwardsSection";
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <LatestSpeakingModal />
             <NavHeroCombo />
             <AboutSection />
+            <AwardsSection />
             <SpeakingEvents />
             <HighlightsSection />
             <TimelineCarousel />
