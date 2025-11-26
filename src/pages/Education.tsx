@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaGraduationCap, FaUniversity, FaCertificate } from "react-icons/fa";
+import { SEO } from "../components/SEO";
 
 const education = [
   {
@@ -42,7 +43,13 @@ const education = [
 
 export default function EducationPage() {
   return (
-    <div className="min-h-screen bg-black text-white px-6 md:px-16 py-20">
+    <>
+      <SEO 
+        title="Education & Certifications - Ebosetale Okhueleigbe"
+        description="Master's in Gender Studies, MBA, Harvard Business School, London Business School, CITN Associate Member, CIFCFIN Nigeria Certified Forensics & Fraud Investigator."
+        canonicalUrl="https://www.ebosetaleokhueleigbe.com/education"
+      />
+      <div className="min-h-screen bg-black text-white px-6 md:px-16 py-20">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
@@ -96,5 +103,6 @@ export default function EducationPage() {
         </motion.div>
       </div>
     </div>
+    </>
   );
 }

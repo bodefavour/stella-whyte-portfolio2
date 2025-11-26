@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaCheckCircle } from "react-icons/fa";
+import { SEO } from "../components/SEO";
 
 const events = [
   {
@@ -31,7 +32,13 @@ const events = [
 
 export default function TimelinePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-[#111] text-white px-6 md:px-16 py-20">
+    <>
+      <SEO 
+        title="Career Timeline - Ebosetale Okhueleigbe | Journey & Milestones"
+        description="Explore the career journey of Ebosetale Okhueleigbe from 2010 to present - key milestones, certifications, awards, and achievements in public service, tax auditing, and women empowerment."
+        canonicalUrl="https://www.ebosetaleokhueleigbe.com/timeline"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-black to-[#111] text-white px-6 md:px-16 py-20">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}

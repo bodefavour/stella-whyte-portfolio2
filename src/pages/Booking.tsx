@@ -1,17 +1,15 @@
 // src/pages/Booking.tsx
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import { SEO } from "../components/SEO";
 
 const Booking = () => {
   return (
     <section className="bg-[#0e0e10] text-white min-h-screen py-20 px-6 md:px-20">
-      <Helmet>
-        <title>Book Ebosetale to Speak</title>
-        <meta
-          name="description"
-          content="Invite Miss Ebosetale Okhueleigbe to speak at your next event—bookings available for conferences, summits, and impactful gatherings."
-        />
-      </Helmet>
+      <SEO 
+        title="Book Ebosetale Okhueleigbe to Speak | Speaking Bookings"
+        description="Invite Ebosetale Okhueleigbe to speak at your conference, summit, or event. Expert speaker on leadership, tax policy, women empowerment, and social transformation."
+        canonicalUrl="https://www.ebosetaleokhueleigbe.com/booking"
+      />
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}

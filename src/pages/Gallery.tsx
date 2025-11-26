@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { SEO } from "../components/SEO";
 
 // Gallery categories with images
 const galleryCategories = [
@@ -104,13 +104,11 @@ export default function Gallery() {
 
   return (
     <>
-      <Helmet>
-        <title>Gallery - Ebosetale Okhueleigbe</title>
-        <meta
-          name="description"
-          content="Explore the visual journey of Ebosetale Okhueleigbe through photos from speaking engagements, awards, philanthropic work, and more."
-        />
-      </Helmet>
+      <SEO 
+        title="Gallery - Ebosetale Okhueleigbe | Photo Archive"
+        description="Explore the visual journey of Ebosetale Okhueleigbe through photos from speaking engagements, awards, philanthropic work, and professional milestones across Africa."
+        canonicalUrl="https://www.ebosetaleokhueleigbe.com/gallery"
+      />
 
       <div className="min-h-screen bg-gradient-to-b from-black via-[#0e0e10] to-black text-white">
         {/* Hero Section */}

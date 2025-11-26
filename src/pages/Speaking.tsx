@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaMicrophone, FaCalendar, FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
-import { Helmet } from "react-helmet-async";
+import { SEO } from "../components/SEO";
 
 // Blog-style speaking engagement data
 const speakingEngagements = [
@@ -67,17 +67,16 @@ She noted that these incentives will not only strengthen businesses but also cre
 export default function SpeakingPage() {
   return (
     <>
-      <Helmet>
-        <title>Speaking Engagements - Ebosetale Okhueleigbe</title>
-        <meta
-          name="description"
-          content="Explore Ebosetale Okhueleigbe's speaking engagements, conferences, and keynote presentations across Africa and beyond."
-        />
-      </Helmet>
+      <SEO 
+        title="Speaking Engagements - Ebosetale Okhueleigbe | Keynote Speaker"
+        description="Book Ebosetale Okhueleigbe for speaking engagements. Featured speaker at Africa Women Conference, ICE Connect 2025, and Africa Trade Consortium. Expert in leadership, empowerment, and tax policy."
+        canonicalUrl="https://www.ebosetaleokhueleigbe.com/speaking"
+        keywords="Ebosetale Okhueleigbe speaker, keynote speaker Nigeria, Africa Women Conference, business speaker, tax policy expert, women empowerment speaker"
+      />
 
       <div className="min-h-screen bg-gradient-to-b from-black via-[#0e0e10] to-black text-white">
         {/* Hero Section */}
-        <section className="relative py-20 px-6 md:px-20 overflow-hidden">
+        <section className="relative py-16 md:py-20 px-4 md:px-6 lg:px-20 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-yellow-900/10 to-transparent opacity-30" />
           
           <motion.div
@@ -87,14 +86,14 @@ export default function SpeakingPage() {
             className="max-w-7xl mx-auto relative z-10"
           >
             <div className="flex items-center gap-3 mb-4">
-              <FaMicrophone className="text-yellow-300 text-4xl" />
-              <span className="text-yellow-300 font-semibold text-lg">Speaking Engagements</span>
+              <FaMicrophone className="text-yellow-300 text-3xl md:text-4xl" />
+              <span className="text-yellow-300 font-semibold text-base md:text-lg">Speaking Engagements</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-playfair text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-playfair text-white mb-6">
               Inspiring Voices,<br />
               <span className="text-yellow-300">Transforming Lives</span>
             </h1>
-            <p className="text-xl text-gray-300 font-outfit max-w-3xl">
+            <p className="text-lg md:text-xl text-gray-300 font-outfit max-w-3xl">
               From international conferences to community forums, Ebosetale shares her expertise in leadership, empowerment, and social transformation.
             </p>
           </motion.div>

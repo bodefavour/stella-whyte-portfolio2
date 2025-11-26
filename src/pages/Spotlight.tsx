@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaVideo, FaNewspaper, FaBullhorn } from "react-icons/fa";
+import { SEO } from "../components/SEO";
 
 const spotlights = [
   {
@@ -21,7 +22,13 @@ const spotlights = [
 
 export default function SpotlightPage() {
   return (
-    <div className="min-h-screen bg-black text-white px-6 md:px-16 py-20">
+    <>
+      <SEO 
+        title="Media Spotlight - Ebosetale Okhueleigbe | TV Interviews & Press"
+        description="Watch Ebosetale Okhueleigbe's TV interviews on AIT, Channels, NTA, and read press coverage in The Guardian, Punch, and Vanguard. Featured media appearances and public campaigns."
+        canonicalUrl="https://www.ebosetaleokhueleigbe.com/spotlight"
+      />
+      <div className="min-h-screen bg-black text-white px-6 md:px-16 py-20">
       <div className="max-w-7xl mx-auto">
         {/* Hero Banner */}
         <motion.div
@@ -78,5 +85,6 @@ export default function SpotlightPage() {
         </motion.div>
       </div>
     </div>
+    </>
   );
 }

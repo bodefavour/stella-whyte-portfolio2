@@ -10,10 +10,16 @@ import { LatestSpeakingModal } from "../components/LatestSpeakingModal";
 import { WMFSection } from "../components/WMFSection";
 import { WMFFloatingCTA } from "../components/WMFFloatingCTA";
 import { AwardsSection } from "../components/AwardsSection";
+import { SEO } from "../components/SEO";
 
 const Home = () => {
     return (
         <main>
+            <SEO 
+                title="Ebosetale Okhueleigbe - Tax Auditor, Gender Analyst & Public Speaker"
+                description="Official website of Ebosetale Okhueleigbe - Tax Auditor at FIRS, Gender Analyst, Public Speaker, Humanitarian, and Founder of Women Mentorship Forum."
+                canonicalUrl="https://www.ebosetaleokhueleigbe.com/"
+            />
             <LatestSpeakingModal />
             <NavHeroCombo />
             <AboutSection />

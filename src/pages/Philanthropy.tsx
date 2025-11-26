@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { SEO } from "../components/SEO";
 
 const initiatives = [
   {
@@ -28,7 +29,13 @@ const stats = [
 ];
 
 export const Philanthropy = () => (
-  <section className="py-20 bg-gray-900 text-white px-6 md:px-20">
+  <>
+    <SEO 
+      title="Philanthropic Work - Ebosetale Okhueleigbe | Community Impact"
+      description="Stella Whyte Foundation empowers widows, orphans, and survivors of gender-based violence. Women Mentorship Forum has mentored 500+ women. Vote Right Campaign mobilized civic participation across 5 Nigerian states."
+      canonicalUrl="https://www.ebosetaleokhueleigbe.com/philanthropy"
+    />
+    <section className="py-20 bg-gray-900 text-white px-6 md:px-20">
     <div className="max-w-6xl mx-auto space-y-12">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -87,4 +94,5 @@ export const Philanthropy = () => (
       </motion.div>
     </div>
   </section>
+  </>
 );

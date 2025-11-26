@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaAward } from "react-icons/fa";
+import { SEO } from "../components/SEO";
 
 const bio = `A dynamic and results-oriented leader with a Master's in Gender Studies, an MBA, and certifications from Harvard Business School and the London School of Business Administration. Ebosetale is a tax auditor, gender analyst, and public service strategist with a passion for inclusive leadership.
 
@@ -37,9 +38,15 @@ const awards = [
 
 export default function AboutPage() {
   return (
-    <main className="bg-black text-white py-20 px-6 md:px-20">
-      {/* Hero */}
-      <motion.div
+    <>
+      <SEO 
+        title="About Ebosetale Okhueleigbe - Tax Expert & Women's Advocate"
+        description="Learn about Ebosetale Okhueleigbe's journey as a Tax Auditor, Gender Analyst, Harvard graduate, and founder of Women Mentorship Forum. Recognized as Humanitarian of the Year."
+        canonicalUrl="https://www.ebosetaleokhueleigbe.com/about"
+      />
+      <main className="bg-black text-white py-20 px-6 md:px-20">
+        {/* Hero */}
+        <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -54,7 +61,7 @@ export default function AboutPage() {
       </motion.div>
 
       {/* Image + Bio */}
-      <div className="grid md:grid-cols-2 gap-10 items-start mb-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-start mb-16 md:mb-20">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -62,9 +69,9 @@ export default function AboutPage() {
           viewport={{ once: true }}
         >
           <img
-            src="/assets/IMG-20250706-WA0017.jpg"
+            src="/images/stella-about.jpg"
             alt="Ebosetale Okhueleigbe"
-            className="rounded-2xl shadow-2xl w-full object-cover"
+            className="rounded-2xl shadow-2xl w-full object-cover max-h-[500px] md:max-h-none"
           />
         </motion.div>
 
@@ -103,7 +110,7 @@ export default function AboutPage() {
         <h3 className="text-3xl font-playfair text-yellow-300 mb-10 text-center">
           Awards & Recognitions
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {awards.map((award, i) => (
             <motion.div
               key={i}
@@ -133,5 +140,6 @@ export default function AboutPage() {
         </p>
       </motion.div>
     </main>
+    </>
   );
 }

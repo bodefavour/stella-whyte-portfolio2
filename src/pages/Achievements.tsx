@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { SEO } from "../components/SEO";
 
 const achievements = [
     {
@@ -50,6 +51,11 @@ const textColor = "#ffffff";
 export default function AchievementsSection() {
     return (
         <>
+            <SEO 
+                title="Awards & Achievements - Ebosetale Okhueleigbe"
+                description="Humanitarian of the Year, PR Times Africa Award, WHO IS WHO Impact Maker, Top 100 African Change Leaders, African Women in Leadership Hall of Fame. Ebosetale's awards and recognitions."
+                canonicalUrl="https://www.ebosetaleokhueleigbe.com/achievements"
+            />
             {/* NAVBAR */}
             <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-md shadow-md border-b border-white/20 px-8 py-4">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
