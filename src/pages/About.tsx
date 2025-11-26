@@ -69,7 +69,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
         >
           <img
-            src="/images/stella-about.jpg"
+            src="assets/IMG-20250706-WA0017.jpg"
             alt="Ebosetale Okhueleigbe"
             className="rounded-2xl shadow-2xl w-full object-cover max-h-[500px] md:max-h-none"
           />
