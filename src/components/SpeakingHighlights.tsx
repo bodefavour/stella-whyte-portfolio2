@@ -56,8 +56,8 @@ const speakingEvents = [
     title: "Top 50 Most Industrious Women in Africa Awards 2025",
     description:
       "The event, themed “The African Women in Leadership,” took place on Sunday, November 23, 2025, at the Lagos Oriental Hotel, Victoria Island, brought together outstanding women leaders, entrepreneurs, policymakers, and innovators from across the African continent. The Top 50 Most Industrious Women in Africa Awards 2025 celebrated women such as Miss Ebosetale who made significant contributions to Africa’s development through innovation, leadership, and social impact.",
-    coverVideo: "", // optional
-    // coverImage: "/assets/Screenshot_20250525-213124.jpg",
+    //coverVideo: "", // optional
+    coverImage: "/assets/SaveClip.App_566800634_18430920349100657_3740313740577026709_n.jpg",
     images: [
       "", // "/assets/Screenshot_20250525-213124.jpg",
       "",
