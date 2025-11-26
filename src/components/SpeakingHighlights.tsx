@@ -18,7 +18,7 @@ const speakingEvents = [
 {
     title: "Africa Women Conference, Zambia 2024",
     description:
-      "In 2024, Miss Ebosetale proudly represented Nigeria on an international stage as a distinguished speaker at the Africa Women’s Conference (AWC) held in Lusaka, Zambia. <b></b>Themed around empowerment, innovation, and inclusive leadership, the AWC brought together women changemakers, leaders, and advocates from across the continent and diaspora to shape the future of African communities through dialogue and actionable strategies.",
+      "In 2024, Miss Ebosetale proudly represented Nigeria on an international stage as a distinguished speaker at the Africa Women’s Conference (AWC) held in Lusaka, Zambia. Themed around empowerment, innovation, and inclusive leadership, the AWC brought together women changemakers, leaders, and advocates from across the continent and diaspora to shape the future of African communities through dialogue and actionable strategies.",
     coverVideo: "https://res.cloudinary.com/dydwcaxmx/video/upload/v1752093628/VID-20250706-WA0032_ftnclr.mp4", // optional
     // coverImage: "/assets/Screenshot_20250525-213124.jpg",
     images: [
